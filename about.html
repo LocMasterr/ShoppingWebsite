@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giới thiệu | Gay Tech Store</title>
+  <meta name="description" content="Tìm hiểu câu chuyện khởi nghiệp, sứ mệnh, đội ngũ phát triển và định hướng của Gay Tech Store.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="announcement-bar">
+    ⚡ <strong>GAMING GEAR KHÓ, CÓ GAY TECH LO!</strong> — Giải pháp phụ kiện máy tính &amp; gaming gear vừa túi tiền sinh viên (Website mô phỏng đồ án CSC00004)
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <img src="img/logo.jpg" alt="Logo Gay Tech Store">
+        <div class="brand-text-wrap">
+          <span class="brand-name">GAY <span>TECH</span> STORE</span>
+          <span class="brand-sub">Gaming gear khó, có Gay Tech lo!</span>
+        </div>
+      </a>
+
+      <div class="header-search">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="headerSearchInput" placeholder="Tìm chuột, bàn phím, màn hình..." aria-label="Tìm kiếm sản phẩm">
+        <button type="button" id="headerSearchClear" class="clear-search-btn" aria-label="Xóa">✕</button>
+      </div>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-link">Trang chủ</a>
+        <a href="index.html#catalog" class="nav-link">Sản phẩm</a>
+        <a href="about.html" class="nav-link active">Giới thiệu</a>
+        <a href="contact.html" class="nav-link">Liên hệ</a>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" class="cart-trigger-btn js-open-cart">
+          <span>🛒 Giỏ hàng</span>
+          <span class="cart-badge js-cart-count">0</span>
+        </button>
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 10.1 About Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-tag">VỀ CHÚNG TÔI</span>
+        <h1 class="hero-title" style="margin-bottom:14px;">WE ARE <span style="color:var(--yellow-primary);">GAY TECH STORE.</span></h1>
+        <p class="section-subtitle" style="max-width:720px; margin:0 auto;">
+          Chúng tôi tin rằng mọi sinh viên đều xứng đáng có một góc công nghệ phù hợp với nhu cầu, sở thích và ngân sách của mình.
+        </p>
+      </div>
+    </section>
+
+    <!-- 10.2 Startup Story & Business Model -->
+    <section class="section">
+      <div class="container two-col-grid">
+        <div class="value-card">
+          <span class="section-tag">CÂU CHUYỆN KHỞI NGHIỆP</span>
+          <h2 style="font-size:1.5rem; margin-bottom:14px;">Giải quyết bài toán chọn Gear của sinh viên</h2>
+          <p style="margin-bottom:12px;">
+            Khi bước vào môi trường đại học, nhu cầu sở hữu chuột không dây gọn nhẹ để mang lên giảng đường, bàn phím cơ gõ êm khi code đêm, hay màn hình phụ tần số quét cao để vừa học vừa giải trí trở nên rất thiết thực.
+          </p>
+          <p>
+            Tuy nhiên, sinh viên thường gặp khó khăn giữa ma trận thiết bị giá cao hoặc hàng trôi nổi kém chất lượng. <strong>Gay Tech Store</strong> ra đời với khẩu hiệu <em>"Gaming gear khó, có Gay Tech lo!"</em> — đóng vai trò bộ lọc đáng tin cậy, tuyển chọn sẵn các thiết bị có tỷ lệ hiệu năng/giá thành tốt nhất cho sinh viên.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <span class="section-tag">MÔ HÌNH KINH DOANH ĐỀ XUẤT</span>
+          <h2 style="font-size:1.5rem; margin-bottom:14px;">Cách Startup tạo giá trị &amp; doanh thu</h2>
+          <p style="margin-bottom:12px;">
+            Trong mô hình khởi nghiệp đề xuất, Gay Tech Store tối ưu chi phí vận hành nhờ mô hình cửa hàng trực tuyến kết hợp giao nhận linh hoạt tại khu vực làng đại học và các cơ sở học tập:
+          </p>
+          <ul class="modal-highlights" style="margin-bottom:0;">
+            <li>Biên lợi nhuận bán lẻ từ các dòng phụ kiện máy tính &amp; gaming gear tuyển chọn.</li>
+            <li>Gói combo "Setup Tân Sinh Viên" (Chuột + Lót chuột + Bàn phím) giúp tiết kiệm chi phí vận chuyển.</li>
+            <li>Dịch vụ tư vấn cấu hình góc máy theo ngân sách cá nhân hóa cho sinh viên.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10.3 Mission & Vision -->
+    <section class="section section-alt">
+      <div class="container two-col-grid">
+        <div class="value-card">
+          <div class="value-icon">🚀</div>
+          <span class="section-tag">SỨ MỆNH (MISSION)</span>
+          <h3 style="font-size:1.35rem; margin-bottom:10px;">Đơn giản hóa việc chọn mua phụ kiện công nghệ</h3>
+          <p>
+            Giúp sinh viên dễ dàng tìm kiếm, so sánh và lựa chọn các thiết bị gaming, phụ kiện máy tính phù hợp nhất với nhu cầu học tập, giải trí mà không phải chi trả vượt quá ngân sách.
+          </p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🌟</div>
+          <span class="section-tag">TẦM NHÌN (VISION)</span>
+          <h3 style="font-size:1.35rem; margin-bottom:10px;">Thương hiệu Gaming Gear định hướng sinh viên</h3>
+          <p>
+            Xây dựng một thương hiệu công nghệ &amp; gaming gear gần gũi, hiện đại và đáng tin cậy, nơi cộng đồng sinh viên luôn tìm thấy giải pháp nâng cấp góc máy thực tế nhất.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10.4 Team Members -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">ĐỘI NGŨ PHÁT TRIỂN</span>
+          <h2 class="section-title">THÀNH VIÊN NHÓM STARTUP</h2>
+          <p class="section-subtitle">
+            Nhóm thực hiện Đồ án 1 môn Nhập môn Công nghệ Thông tin (CSC00004). Mọi thành viên đều nắm vững toàn bộ luồng hoạt động của dự án.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-avatar">TV1</div>
+            <h3>Hoàng Mạnh Hùng</h3>
+            <p style="color:var(--yellow-primary); font-size:0.82rem; font-weight:700; margin:4px 0;">MSSV: 26127142</p>
+            <p style="font-size:0.84rem; color:var(--text-secondary);">Lập trình giao diện, cấu trúc mã nguồn &amp; kiểm thử hệ thống</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">TV2</div>
+            <h3>Thành viên 2</h3>
+            <p style="color:var(--yellow-primary); font-size:0.82rem; font-weight:700; margin:4px 0;">MSSV: [Cập nhật MSSV]</p>
+            <p style="font-size:0.84rem; color:var(--text-secondary);">Xây dựng nội dung sản phẩm &amp; hình ảnh thương hiệu</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">TV3</div>
+            <h3>Thành viên 3</h3>
+            <p style="color:var(--yellow-primary); font-size:0.82rem; font-weight:700; margin:4px 0;">MSSV: [Cập nhật MSSV]</p>
+            <p style="font-size:0.84rem; color:var(--text-secondary);">Thiết kế UI/UX, kiểm thử Responsive trên điện thoại</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">TV4</div>
+            <h3>Thành viên 4</h3>
+            <p style="color:var(--yellow-primary); font-size:0.82rem; font-weight:700; margin:4px 0;">MSSV: [Cập nhật MSSV]</p>
+            <p style="font-size:0.84rem; color:var(--text-secondary);">Thiết kế Poster A1, mã QR &amp; kịch bản thuyết trình</p>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar">TV5</div>
+            <h3>Thành viên 5</h3>
+            <p style="color:var(--yellow-primary); font-size:0.82rem; font-weight:700; margin:4px 0;">MSSV: [Cập nhật MSSV]</p>
+            <p style="font-size:0.84rem; color:var(--text-secondary);">Kiểm thử luồng giỏ hàng, thanh toán &amp; điều phối nhóm</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10.5 AI Usage Transparency -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="value-card" style="max-width:880px; margin:0 auto;">
+          <span class="section-tag">MINH BẠCH CÔNG NGHỆ</span>
+          <h2 style="font-size:1.45rem; margin-bottom:12px;">Minh bạch về việc sử dụng công cụ AI trong đồ án</h2>
+          <p style="margin-bottom:12px;">
+            Tuân thủ quy định của học phần <strong>CSC00004 – Nhập môn Công nghệ Thông tin</strong>, nhóm công khai việc ứng dụng các công cụ Trí tuệ Nhân tạo (AI) như một trợ lý hỗ trợ trong quá trình thực hiện dự án:
+          </p>
+          <ul class="modal-highlights">
+            <li><strong>Gợi ý bố cục UI/UX &amp; cấu trúc mã nguồn:</strong> Hỗ trợ chuẩn hóa giao diện Dark Gaming UI, hệ thống lưới Responsive và tổ chức code HTML5/CSS3/ES6 JavaScript sạch, dễ bảo trì.</li>
+            <li><strong>Biên tập nội dung mô tả:</strong> Hỗ trợ trau chuốt câu chữ tiếng Việt tự nhiên, nhất quán với định vị thương hiệu dành cho sinh viên.</li>
+            <li><strong>Trách nhiệm của các thành viên:</strong> Toàn bộ dữ liệu sản phẩm, giá bán, hình ảnh thực tế, kiểm thử tính năng và giải thích mã nguồn tại buổi trình bày poster đều do các thành viên trong nhóm trực tiếp kiểm soát và chịu trách nhiệm.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        © 2026 Gay Tech Store — "Gaming gear khó, có Gay Tech lo!". Đồ án 1 môn CSC00004 Nhập môn CNTT.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Thành phần dùng chung Giỏ hàng & Thanh toán -->
+  <div class="overlay-backdrop" id="globalBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Giỏ hàng">
+    <div class="cart-drawer-header">
+      <h3>🛒 Giỏ hàng (<span id="cartTotalItemsText">0 sản phẩm</span>)</h3>
+      <button type="button" class="modal-close-btn" id="closeCartDrawerBtn" style="position:static;">✕</button>
+    </div>
+    <div class="cart-drawer-body" id="cartDrawerBody"></div>
+    <div class="cart-drawer-footer" id="cartDrawerFooter">
+      <div class="cart-summary-row"><span>Tạm tính:</span><strong id="cartSubtotalValue">0đ</strong></div>
+      <div class="cart-summary-row cart-summary-total"><span>Tổng cộng:</span><span id="cartTotalValue">0đ</span></div>
+      <div style="display:grid; gap:10px;">
+        <button type="button" class="btn btn-primary" id="proceedToCheckoutBtn">TIẾN HÀNH ĐẶT HÀNG</button>
+        <button type="button" class="btn btn-secondary btn-sm" id="continueShoppingBtn">Tiếp tục mua sắm</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Modal Checkout -->
+  <div class="modal-container" id="checkoutModal" role="dialog" aria-modal="true">
+    <div class="modal-box checkout-modal-box">
+      <button type="button" class="modal-close-btn" id="closeCheckoutModalBtn">✕</button>
+      <div id="checkoutFormView">
+        <h2 style="margin-bottom:12px;">Thanh toán đơn hàng (Chế độ mô phỏng)</h2>
+        <div class="demo-alert">
+          ⚠️ Đây là website mô phỏng phục vụ đồ án học tập. Vui lòng chỉ sử dụng thông tin giả, không nhập thông tin cá nhân thật.
+          <div style="margin-top:8px;">
+            <button type="button" class="btn btn-secondary btn-sm" id="fillDemoDataBtn">⚡ Điền nhanh thông tin mẫu (Demo)</button>
+          </div>
+        </div>
+        <form id="checkoutForm" novalidate>
+          <div class="checkout-grid">
+            <div>
+              <div class="form-group">
+                <label for="custName">Tên người nhận (tên giả) *</label>
+                <input type="text" id="custName" class="form-control" placeholder="VD: Nguyễn Văn A (Khách thử)">
+                <div class="form-error">Vui lòng nhập tên người nhận giả lập.</div>
+              </div>
+              <div class="form-group">
+                <label for="custPhone">Số điện thoại (số giả 9–11 chữ số) *</label>
+                <input type="tel" id="custPhone" class="form-control" placeholder="VD: 0900123456">
+                <div class="form-error">Vui lòng nhập số điện thoại giả hợp lệ.</div>
+              </div>
+              <div class="form-group">
+                <label for="custAddress">Địa chỉ giao hàng mẫu *</label>
+                <input type="text" id="custAddress" class="form-control" placeholder="VD: Cơ sở Nguyễn Văn Cừ">
+                <div class="form-error">Vui lòng nhập địa chỉ giao hàng mẫu.</div>
+              </div>
+              <div class="form-group">
+                <label for="custNote">Ghi chú đơn hàng</label>
+                <textarea id="custNote" class="form-control" rows="2"></textarea>
+              </div>
+            </div>
+            <div>
+              <label class="payment-option selected">
+                <input type="radio" name="paymentMethod" value="Thanh toán khi nhận hàng (Demo)" checked>
+                <div><strong>Thanh toán khi nhận hàng (Demo)</strong></div>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="paymentMethod" value="Chuyển khoản ngân hàng (Mô phỏng)">
+                <div><strong>Chuyển khoản ngân hàng (Mô phỏng)</strong></div>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="paymentMethod" value="Ví điện tử (Demo)">
+                <div><strong>Ví điện tử (Demo)</strong></div>
+              </label>
+              <div id="paymentMethodDesc" style="font-size:0.82rem; color:var(--yellow-primary); margin:10px 0;">
+                Mô phỏng: Không thu tiền thật.
+              </div>
+              <div style="background:var(--bg-primary); border:1px solid var(--border-color); padding:14px; border-radius:var(--radius-sm); margin-bottom:14px;">
+                <div id="checkoutOrderItems"></div>
+                <div style="display:flex; justify-content:space-between; font-weight:800; color:var(--yellow-primary); margin-top:10px;">
+                  <span>Tổng cộng:</span><span id="checkoutFinalTotal">0đ</span>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%;">XÁC NHẬN ĐẶT HÀNG</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div id="checkoutSuccessView" style="display:none; text-align:center;">
+        <h2 style="color:var(--success);">ĐẶT HÀNG THÀNH CÔNG!</h2>
+        <p>Cảm ơn bạn đã trải nghiệm Gay Tech Store.</p>
+        <div id="orderConfirmationDetails"></div>
+        <a href="index.html" class="btn btn-primary" style="margin-top:14px;">Quay về trang chủ</a>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="back-to-top" id="backToTopBtn" aria-label="Lên đầu trang">↑</button>
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
