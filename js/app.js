@@ -1,5 +1,6 @@
 /**
- * MODULE ĐIỀU KHIỂN CHÍNH ĐÃ KHÓA LỖI TRÙNG ID & SỰ KIỆN (js/app.js)
+ * MODULE ĐIỀU KHIỂN CHÍNH (js/app.js)
+ * Tích hợp Icon Font Awesome 6 & Khóa chống lặp giao diện
  */
 (function () {
   let uiState = {
@@ -8,7 +9,35 @@
     sortBy: "default"
   };
 
-  // Tự động kiểm tra và sửa nếu người dùng copy-paste thêm sản phẩm mà quên đổi ID
+  const categoryIcons = {
+    "Gaming Mouse": "fa-solid fa-computer-mouse",
+    "Mechanical Keyboard": "fa-solid fa-keyboard",
+    "Gaming Headset": "fa-solid fa-headset",
+    "Monitor": "fa-solid fa-desktop",
+    "Mousepad": "fa-solid fa-border-all",
+    "Game Controller": "fa-solid fa-gamepad"
+  };
+
+  // Tự động xóa các phần tử bị lặp nếu người dùng vô tình dán chồng file HTML
+  function cleanupAccidentalDuplicateDOM() {
+    const headers = document.querySelectorAll(".site-header");
+    if (headers.length > 1) {
+      for (let i = 1; i < headers.length; i++) headers[i].remove();
+    }
+    const mains = document.querySelectorAll("main");
+    if (mains.length > 1) {
+      for (let i = 1; i < mains.length; i++) mains[i].remove();
+    }
+    const footers = document.querySelectorAll(".site-footer");
+    if (footers.length > 1) {
+      for (let i = 1; i < footers.length; i++) footers[i].remove();
+    }
+    const bars = document.querySelectorAll(".announcement-bar");
+    if (bars.length > 1) {
+      for (let i = 1; i < bars.length; i++) bars[i].remove();
+    }
+  }
+
   function ensureUniqueProductIds() {
     if (typeof PRODUCTS_DATA === "undefined") return;
     const seen = new Set();
@@ -25,26 +54,27 @@
     const filterPillsBox = document.getElementById("filterPillsContainer");
 
     if (showcaseGrid && typeof CATEGORIES_DATA !== "undefined") {
-      showcaseGrid.innerHTML = CATEGORIES_DATA.map(
-        (cat) => `
-        <div class="category-card" data-category="${cat.id}">
-          <div class="category-thumb"><img src="${cat.image}" alt="${cat.title}" loading="lazy"></div>
-          <h3>${cat.title}</h3>
-          <span>${cat.subtitle}</span>
-        </div>
-      `
-      ).join("");
+      showcaseGrid.innerHTML = CATEGORIES_DATA.map((cat) => {
+        const iconClass = categoryIcons[cat.id] || "fa-solid fa-microchip";
+        return `
+          <div class="category-card" data-category="${cat.id}">
+            <div class="category-thumb"><img src="${cat.image}" alt="${cat.title}" loading="lazy"></div>
+            <h3><i class="${iconClass}" style="color:var(--yellow-primary); margin-right:5px;"></i>${cat.title}</h3>
+            <span>${cat.subtitle}</span>
+          </div>
+        `;
+      }).join("");
     }
 
     if (filterPillsBox && typeof PRODUCTS_DATA !== "undefined") {
       const uniqueCategories = Array.from(new Set(PRODUCTS_DATA.map((p) => p.category)));
       filterPillsBox.innerHTML =
-        `<button type="button" class="filter-pill active" data-category="ALL">Tất cả sản phẩm (${PRODUCTS_DATA.length})</button>` +
+        `<button type="button" class="filter-pill active" data-category="ALL"><i class="fa-solid fa-border-all" style="margin-right:6px;"></i>Tất cả (${PRODUCTS_DATA.length})</button>` +
         uniqueCategories
-          .map(
-            (cat) =>
-              `<button type="button" class="filter-pill" data-category="${cat}">${cat}</button>`
-          )
+          .map((cat) => {
+            const iconClass = categoryIcons[cat] || "fa-solid fa-tag";
+            return `<button type="button" class="filter-pill" data-category="${cat}"><i class="${iconClass}" style="margin-right:6px;"></i>${cat}</button>`;
+          })
           .join("");
     }
   }
@@ -56,9 +86,11 @@
     teamGrid.innerHTML = TEAM_MEMBERS_DATA.map(
       (member) => `
       <div class="team-card">
-        <div class="team-avatar">${member.avatarText}</div>
+        <div class="team-avatar"><i class="fa-solid fa-user-astronaut"></i></div>
         <h3>${member.name}</h3>
-        <p style="color:var(--yellow-primary); font-size:0.82rem; font-weight:700; margin:4px 0;">MSSV: ${member.mssv}</p>
+        <p style="color:var(--yellow-primary); font-size:0.82rem; font-weight:700; margin:4px 0;">
+          <i class="fa-solid fa-id-card" style="margin-right:5px;"></i>MSSV: ${member.mssv}
+        </p>
         <p style="font-size:0.84rem; color:var(--text-secondary);">${member.role}</p>
       </div>
     `
@@ -113,9 +145,11 @@
     if (filtered.length === 0) {
       gridEl.innerHTML = `
         <div class="empty-catalog-state">
-          <h3>Không tìm thấy sản phẩm phù hợp. Hãy thử từ khóa khác nhé!</h3>
+          <h3><i class="fa-solid fa-magnifying-glass-minus" style="color:var(--yellow-primary); margin-right:8px;"></i>Không tìm thấy sản phẩm phù hợp. Hãy thử từ khóa khác nhé!</h3>
           <p>Bạn có thể xóa bộ lọc hiện tại để xem lại toàn bộ ${PRODUCTS_DATA.length} sản phẩm tại Gay Tech Store.</p>
-          <button type="button" class="btn btn-primary btn-sm" id="resetCatalogFilterBtn">XEM TẤT CẢ SẢN PHẨM</button>
+          <button type="button" class="btn btn-primary btn-sm" id="resetCatalogFilterBtn">
+            <i class="fa-solid fa-rotate-left"></i> XEM TẤT CẢ SẢN PHẨM
+          </button>
         </div>
       `;
       const resetBtn = document.getElementById("resetCatalogFilterBtn");
@@ -134,28 +168,33 @@
     }
 
     gridEl.innerHTML = filtered
-      .map(
-        (product) => `
+      .map((product) => {
+        const iconClass = categoryIcons[product.category] || "fa-solid fa-microchip";
+        return `
         <article class="product-card">
-          ${product.badge ? `<span class="product-badge">${product.badge}</span>` : ""}
+          ${product.badge ? `<span class="product-badge"><i class="fa-solid fa-fire" style="margin-right:4px;"></i>${product.badge}</span>` : ""}
           <div class="product-img-wrap" data-action="detail" data-id="${product.id}">
             <img src="${product.image}" alt="${product.name}" loading="lazy">
           </div>
           <div class="product-body">
-            <div class="product-category">${product.category} • ${product.categoryLabel}</div>
+            <div class="product-category"><i class="${iconClass}" style="margin-right:5px;"></i>${product.category} • ${product.categoryLabel}</div>
             <h3 class="product-title" data-action="detail" data-id="${product.id}">${product.name}</h3>
             <p class="product-desc">${product.shortDesc}</p>
             <div class="product-footer">
               <div class="product-price">${CartModule.formatVND(product.price)}</div>
               <div class="product-actions">
-                <button type="button" class="btn btn-secondary btn-sm" data-action="detail" data-id="${product.id}">Xem / Mua lẻ</button>
-                <button type="button" class="btn btn-primary btn-sm" data-action="add-cart" data-id="${product.id}">+ Thêm vào giỏ</button>
+                <button type="button" class="btn btn-secondary btn-sm" data-action="detail" data-id="${product.id}">
+                  <i class="fa-solid fa-eye"></i> Chi tiết
+                </button>
+                <button type="button" class="btn btn-primary btn-sm" data-action="add-cart" data-id="${product.id}">
+                  <i class="fa-solid fa-cart-plus"></i> Thêm giỏ
+                </button>
               </div>
             </div>
           </div>
         </article>
-      `
-      )
+      `;
+      })
       .join("");
   }
 
@@ -183,13 +222,15 @@
     const content = document.getElementById("productModalContent");
     if (!modal || !content) return;
 
+    const iconClass = categoryIcons[product.category] || "fa-solid fa-microchip";
+
     content.innerHTML = `
       <div class="modal-detail-grid">
         <div class="modal-img-box">
           <img src="${product.image}" alt="${product.name}">
         </div>
         <div>
-          <div class="product-category">${product.category} • ${product.categoryLabel}</div>
+          <div class="product-category"><i class="${iconClass}" style="margin-right:5px;"></i>${product.category} • ${product.categoryLabel}</div>
           <h2 style="font-size:1.55rem; margin-bottom:10px;">${product.name}</h2>
           <div class="product-price" style="font-size:1.6rem; margin-bottom:14px;">${CartModule.formatVND(product.price)}</div>
           <p style="color:var(--text-secondary); font-size:0.95rem;">${product.description}</p>
@@ -202,8 +243,12 @@
               <input type="text" id="modalQtyInput" value="1" readonly aria-label="Số lượng">
               <button type="button" id="modalQtyInc" aria-label="Tăng số lượng">+</button>
             </div>
-            <button type="button" class="btn btn-secondary" id="modalAddToCartBtn">+ Thêm vào giỏ</button>
-            <button type="button" class="btn btn-primary" id="modalBuyNowSingleBtn">⚡ Mua ngay món này</button>
+            <button type="button" class="btn btn-secondary" id="modalAddToCartBtn">
+              <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+            </button>
+            <button type="button" class="btn btn-primary" id="modalBuyNowSingleBtn">
+              <i class="fa-solid fa-bolt"></i> Mua ngay món này
+            </button>
           </div>
         </div>
       </div>
@@ -223,7 +268,6 @@
       modal.classList.remove("open");
       CartModule.openDrawer();
     };
-    // Nút Mua ngay: Đặt riêng đúng 1 sản phẩm này, không gộp với giỏ hàng cũ
     document.getElementById("modalBuyNowSingleBtn").onclick = () => {
       const qty = parseInt(qtyInput.value, 10) || 1;
       if (CartModule.setSingleBuyItem(product.id, qty)) {
@@ -237,6 +281,7 @@
     if (window.__GTS_APP_INIT__) return;
     window.__GTS_APP_INIT__ = true;
 
+    cleanupAccidentalDuplicateDOM();
     ensureUniqueProductIds();
     CartModule.init();
     CheckoutModule.init();

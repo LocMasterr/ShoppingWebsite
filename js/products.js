@@ -148,15 +148,15 @@ const PRODUCTS_DATA = [
 
 const TEAM_MEMBERS_DATA = [
   {
-    avatarText: "TV1",
-    name: "Hoàng Mạnh Hùng",
-    mssv: "26127142",
+    avatarText: "Trưởng Nhóm",
+    name: "Kiều Gia Huy",
+    mssv: "26127170",
     role: "Kiến trúc mã nguồn, Lập trình tính năng & Kiểm thử hệ thống"
   },
   {
     avatarText: "TV2",
-    name: "Thành viên 2",
-    mssv: "[Cập nhật MSSV]",
+    name: "Lê Trần Tấn Lộc",
+    mssv: "26127258",
     role: "Xây dựng dữ liệu sản phẩm & Nội dung thương hiệu"
   },
   {

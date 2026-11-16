@@ -5,21 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gay Tech Store | Gaming gear khó, có Gay Tech lo!</title>
   <meta name="description" content="Gay Tech Store - Cửa hàng thiết bị gaming, phụ kiện máy tính và giải trí dành cho sinh viên. Đồ án môn CSC00004 Nhập môn CNTT.">
-  <!-- Liên kết 2 file CSS: Giao diện chính và Giao diện di động -->
+  <!-- Favicon hiển thị trên Tab trình duyệt -->
+  <link rel="icon" type="image/jpeg" href="img/logo.jpg">
+  <link rel="apple-touch-icon" href="img/logo.jpg">
+  <!-- Thư viện Icon Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Liên kết 2 file CSS -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 
-  <!-- 1. THANH THÔNG BÁO ĐẦU TRANG (Announcement Bar) -->
+  <!-- 1. THANH THÔNG BÁO ĐẦU TRANG -->
   <div class="announcement-bar">
-    ⚡ <strong>GAMING GEAR KHÓ, CÓ GAY TECH LO!</strong> — Giải pháp phụ kiện máy tính &amp; gaming gear vừa túi tiền sinh viên (Website mô phỏng đồ án CSC00004)
+    <i class="fa-solid fa-bolt" style="color:var(--yellow-primary); margin-right:6px;"></i>
+    <strong>GAMING GEAR KHÓ, CÓ GAY TECH LO!</strong> — Giải pháp phụ kiện máy tính &amp; gaming gear vừa túi tiền sinh viên (Website mô phỏng đồ án CSC00004)
   </div>
 
-  <!-- 2. THANH ĐIỀU HƯỚNG CỐ ĐỊNH (Sticky Header) -->
+  <!-- 2. THANH ĐIỀU HƯỚNG CỐ ĐỊNH -->
   <header class="site-header">
     <div class="container header-inner">
-      <!-- Logo & Tên thương hiệu -->
       <a href="index.html" class="brand-logo" aria-label="Trang chủ Gay Tech Store">
         <img src="img/logo.jpg" alt="Logo Gay Tech Store">
         <div class="brand-text-wrap">
@@ -28,29 +33,28 @@
         </div>
       </a>
 
-      <!-- Thanh tìm kiếm nhanh trên Header -->
       <div class="header-search">
-        <span class="search-icon">🔍</span>
+        <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
         <input type="text" id="headerSearchInput" placeholder="Tìm chuột, bàn phím, màn hình..." aria-label="Tìm kiếm sản phẩm">
-        <button type="button" id="headerSearchClear" class="clear-search-btn" aria-label="Xóa từ khóa">✕</button>
+        <button type="button" id="headerSearchClear" class="clear-search-btn" aria-label="Xóa từ khóa">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
 
-      <!-- Menu điều hướng chính -->
       <nav class="main-nav" id="mainNav" aria-label="Điều hướng chính">
-        <a href="index.html" class="nav-link active">Trang chủ</a>
-        <a href="#catalog" class="nav-link">Sản phẩm</a>
-        <a href="about.html" class="nav-link">Giới thiệu</a>
-        <a href="contact.html" class="nav-link">Liên hệ</a>
+        <a href="index.html" class="nav-link active"><i class="fa-solid fa-house" style="margin-right:6px;"></i>Trang chủ</a>
+        <a href="#catalog" class="nav-link"><i class="fa-solid fa-gamepad" style="margin-right:6px;"></i>Sản phẩm</a>
+        <a href="about.html" class="nav-link"><i class="fa-solid fa-users" style="margin-right:6px;"></i>Giới thiệu</a>
+        <a href="contact.html" class="nav-link"><i class="fa-solid fa-envelope" style="margin-right:6px;"></i>Liên hệ</a>
       </nav>
 
-      <!-- Nút mở Giỏ hàng & Nút Menu trên điện thoại -->
       <div class="header-actions">
         <button type="button" class="cart-trigger-btn js-open-cart" aria-label="Mở giỏ hàng">
-          <span>🛒 Giỏ hàng</span>
+          <span><i class="fa-solid fa-cart-shopping" style="color:var(--yellow-primary); margin-right:6px;"></i>Giỏ hàng</span>
           <span class="cart-badge js-cart-count">0</span>
         </button>
         <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-label="Mở menu">
-          ☰
+          <i class="fa-solid fa-bars"></i>
         </button>
       </div>
     </div>
@@ -61,7 +65,9 @@
     <section class="hero-section">
       <div class="container hero-grid">
         <div>
-          <div class="hero-eyebrow">🎮 GAY TECH STORE • STUDENT GAMING GEAR</div>
+          <div class="hero-eyebrow">
+            <i class="fa-solid fa-gamepad"></i> GAY TECH STORE • STUDENT GAMING GEAR
+          </div>
           <h1 class="hero-title">
             LEVEL UP YOUR GAME.
             <span class="highlight">UPGRADE YOUR EXPERIENCE.</span>
@@ -70,26 +76,29 @@
             Không cần đầu tư quá nhiều để sở hữu một góc gaming chất lượng. Gay Tech giúp bạn lựa chọn gaming gear phù hợp với nhu cầu và ngân sách.
           </p>
           <div class="hero-cta-group">
-            <a href="#catalog" class="btn btn-primary">KHÁM PHÁ SẢN PHẨM</a>
-            <a href="about.html" class="btn btn-secondary">TÌM HIỂU VỀ CHÚNG TÔI</a>
+            <a href="#catalog" class="btn btn-primary">
+              <i class="fa-solid fa-rocket"></i> KHÁM PHÁ SẢN PHẨM
+            </a>
+            <a href="about.html" class="btn btn-secondary">
+              <i class="fa-solid fa-circle-info"></i> TÌM HIỂU VỀ CHÚNG TÔI
+            </a>
           </div>
           <div class="hero-highlights">
             <div class="hero-stat-item">
-              <strong>6 Danh mục</strong>
+              <strong><i class="fa-solid fa-layer-group" style="margin-right:6px;"></i>6 Danh mục</strong>
               <span>Chọn lọc thiết thực cho sinh viên</span>
             </div>
             <div class="hero-stat-item">
-              <strong>Từ 490.000đ</strong>
+              <strong><i class="fa-solid fa-tags" style="margin-right:6px;"></i>Từ 490.000đ</strong>
               <span>Chi phí hợp lý, minh bạch</span>
             </div>
             <div class="hero-stat-item">
-              <strong>Đặt hàng nhanh</strong>
+              <strong><i class="fa-solid fa-bolt" style="margin-right:6px;"></i>Đặt hàng nhanh</strong>
               <span>Trải nghiệm giỏ hàng trực quan</span>
             </div>
           </div>
         </div>
 
-        <!-- Khung hình ảnh sản phẩm nổi bật bên phải -->
         <div class="hero-visual">
           <div class="hero-showcase-card">
             <div class="hero-main-img-wrap" data-id="gts-monitor-vg249" title="Nhấn để xem chi tiết màn hình ASUS 146Hz">
@@ -114,11 +123,11 @@
       </div>
     </section>
 
-    <!-- 4. GIỚI THIỆU SỨ MỆNH THƯƠNG HIỆU (Brand Introduction) -->
+    <!-- 4. GIỚI THIỆU SỨ MỆNH THƯƠNG HIỆU -->
     <section class="section">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">SỨ MỆNH KHỞI NGHIỆP</span>
+          <span class="section-tag"><i class="fa-solid fa-star" style="margin-right:6px;"></i>SỨ MỆNH KHỞI NGHIỆP</span>
           <h2 class="section-title">TECHNOLOGY FOR YOUR EVERYDAY GAME.</h2>
           <p class="section-subtitle">
             Gay Tech Store ra đời nhằm giải quyết bài toán quen thuộc của sinh viên: muốn nâng cấp góc máy học tập và chơi game nhưng bị choáng ngợp giữa hàng trăm mẫu mã đắt đỏ.
@@ -127,22 +136,22 @@
 
         <div class="values-grid">
           <div class="value-card">
-            <div class="value-icon">🎓</div>
+            <div class="value-icon"><i class="fa-solid fa-user-graduate"></i></div>
             <h3>Thân thiện với sinh viên</h3>
             <p>Tập trung vào phân khúc giá dễ tiếp cận, phù hợp với ngân sách của sinh viên đại học.</p>
           </div>
           <div class="value-card">
-            <div class="value-icon">✨</div>
+            <div class="value-icon"><i class="fa-solid fa-award"></i></div>
             <h3>Sản phẩm tuyển chọn</h3>
             <p>Danh mục cô đọng gồm những mẫu chuột, bàn phím, màn hình và tai nghe thực dụng nhất.</p>
           </div>
           <div class="value-card">
-            <div class="value-icon">💻</div>
+            <div class="value-icon"><i class="fa-solid fa-laptop-code"></i></div>
             <h3>Công nghệ thiết thực</h3>
             <p>Đáp ứng đồng thời nhu cầu học tập, lập trình, họp nhóm trực tuyến và giải trí.</p>
           </div>
           <div class="value-card">
-            <div class="value-icon">⚡</div>
+            <div class="value-icon"><i class="fa-solid fa-cart-flatbed"></i></div>
             <h3>Mua sắm tiện lợi</h3>
             <p>Tìm kiếm, lọc danh mục, so sánh giá và đặt hàng thử nghiệm mượt mà ngay trên điện thoại.</p>
           </div>
@@ -150,16 +159,15 @@
       </div>
     </section>
 
-    <!-- 5. DANH MỤC SẢN PHẨM TRỰC QUAN (Category Showcase) -->
+    <!-- 5. DANH MỤC SẢN PHẨM TRỰC QUAN -->
     <section class="section section-alt">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">DANH MỤC THIẾT BỊ</span>
+          <span class="section-tag"><i class="fa-solid fa-table-cells-large" style="margin-right:6px;"></i>DANH MỤC THIẾT BỊ</span>
           <h2 class="section-title">CHỌN NHANH THEO NHU CẦU SETUP</h2>
           <p class="section-subtitle">Nhấn vào từng danh mục để lọc ngay sản phẩm tương ứng bên dưới.</p>
         </div>
 
-        <!-- Khung này sẽ được js/app.js tự động đổ 6 danh mục từ file js/products.js -->
         <div class="category-grid" id="categoryShowcaseGrid"></div>
       </div>
     </section>
@@ -168,21 +176,22 @@
     <section class="section" id="catalog">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">KHO SẢN PHẨM CHÍNH HÃNG</span>
+          <span class="section-tag"><i class="fa-solid fa-fire" style="margin-right:6px;"></i>KHO SẢN PHẨM CHÍNH HÃNG</span>
           <h2 class="section-title">DANH MỤC SẢN PHẨM NỔI BẬT</h2>
           <p class="section-subtitle">Trải nghiệm tìm kiếm thời gian thực, lọc theo danh mục và sắp xếp theo mức giá.</p>
         </div>
 
-        <!-- Thanh công cụ điều khiển danh sách sản phẩm -->
         <div class="catalog-toolbar">
           <div class="toolbar-top">
             <div class="catalog-search-box">
-              <span class="search-icon">🔍</span>
+              <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
               <input type="text" id="catalogSearchInput" placeholder="Nhập tên sản phẩm, danh mục hoặc từ khóa (VD: 146Hz, không dây, Razer)..." aria-label="Tìm sản phẩm">
-              <button type="button" id="catalogSearchClear" class="clear-btn" aria-label="Xóa tìm kiếm">✕</button>
+              <button type="button" id="catalogSearchClear" class="clear-btn" aria-label="Xóa tìm kiếm">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
             </div>
             <div class="sort-box">
-              <label for="sortSelect">Sắp xếp:</label>
+              <label for="sortSelect"><i class="fa-solid fa-arrow-up-wide-short" style="margin-right:6px; color:var(--yellow-primary);"></i>Sắp xếp:</label>
               <select id="sortSelect">
                 <option value="default">Mặc định (Đề xuất)</option>
                 <option value="price-asc">Giá: thấp đến cao</option>
@@ -193,42 +202,40 @@
             </div>
           </div>
 
-          <!-- Các nút bấm lọc danh mục được tạo tự động bởi js/app.js -->
           <div class="filter-pills" id="filterPillsContainer" role="tablist" aria-label="Bộ lọc danh mục"></div>
         </div>
 
-        <!-- Lưới hiển thị các thẻ sản phẩm được tạo tự động bởi js/app.js -->
         <div class="products-grid" id="productsGrid"></div>
       </div>
     </section>
 
-    <!-- 7. VÌ SAO CHỌN GAY TECH STORE? (Why Choose Us) -->
+    <!-- 7. VÌ SAO CHỌN GAY TECH STORE? -->
     <section class="section section-alt">
       <div class="container">
         <div class="section-header">
-          <span class="section-tag">LỢI THẾ CẠNH TRANH</span>
+          <span class="section-tag"><i class="fa-solid fa-crown" style="margin-right:6px;"></i>LỢI THẾ CẠNH TRANH</span>
           <h2 class="section-title">VÌ SAO SINH VIÊN CHỌN GAY TECH STORE?</h2>
           <p class="section-subtitle">Giải pháp mua sắm thiết bị công nghệ được thiết kế riêng cho nhu cầu học tập và giải trí của sinh viên.</p>
         </div>
 
         <div class="values-grid">
           <div class="value-card">
-            <div class="value-icon">🎯</div>
+            <div class="value-icon"><i class="fa-solid fa-bullseye"></i></div>
             <h3>Tư vấn đúng nhu cầu</h3>
             <p>Không chạy theo cấu hình đắt đỏ không cần thiết, tập trung vào trải nghiệm thực tế của sinh viên.</p>
           </div>
           <div class="value-card">
-            <div class="value-icon">💰</div>
+            <div class="value-icon"><i class="fa-solid fa-piggy-bank"></i></div>
             <h3>Tối ưu ngân sách</h3>
             <p>Các sản phẩm được cân đối kỹ về hiệu năng trên giá thành, giúp tiết kiệm chi phí đầu tư ban đầu.</p>
           </div>
           <div class="value-card">
-            <div class="value-icon">📱</div>
+            <div class="value-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
             <h3>Tối ưu cho di động</h3>
             <p>Quét mã QR tại buổi triển lãm poster là có thể xem chi tiết và đặt hàng thử ngay trên smartphone.</p>
           </div>
           <div class="value-card">
-            <div class="value-icon">🛡️</div>
+            <div class="value-icon"><i class="fa-solid fa-shield-halved"></i></div>
             <h3>Mô hình minh bạch</h3>
             <p>Thông tin giá bán, mô tả sản phẩm và luồng xác nhận đơn hàng rõ ràng, trực quan.</p>
           </div>
@@ -236,22 +243,24 @@
       </div>
     </section>
 
-    <!-- 8. BANNER QUẢNG BÁ (Promotional Banner) -->
+    <!-- 8. BANNER QUẢNG BÁ -->
     <section class="section">
       <div class="container">
         <div class="promo-banner">
           <div>
-            <span class="section-tag">GAY TECH STORE CAMPAIGN</span>
+            <span class="section-tag"><i class="fa-solid fa-wand-magic-sparkles" style="margin-right:6px;"></i>GAY TECH STORE CAMPAIGN</span>
             <h2>YOUR SETUP. YOUR RULES. YOUR EXPERIENCE.</h2>
             <p>Khám phá gaming gear phù hợp với phong cách của bạn.</p>
           </div>
-          <a href="#catalog" class="btn btn-primary">MUA SẮM NGAY</a>
+          <a href="#catalog" class="btn btn-primary">
+            <i class="fa-solid fa-bag-shopping"></i> MUA SẮM NGAY
+          </a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- 9. CHÂN TRANG (Footer) -->
+  <!-- 9. CHÂN TRANG (Footer hoàn chỉnh, không bị lồng code) -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
@@ -269,322 +278,29 @@
         </div>
 
         <div class="footer-col">
-          <h4>Điều hướng</h4>
+          <h4><i class="fa-solid fa-compass" style="margin-right:6px;"></i>Điều hướng</h4>
           <ul class="footer-links">
-            <li><a href="index.html">Trang chủ</a></li>
-            <li><a href="#catalog">Sản phẩm</a></li>
-            <li><a href="about.html">Giới thiệu</a></li>
-            <li><a href="contact.html">Liên hệ</a></li>
+            <li><a href="index.html"><i class="fa-solid fa-angle-right" style="margin-right:6px;"></i>Trang chủ</a></li>
+            <li><a href="#catalog"><i class="fa-solid fa-angle-right" style="margin-right:6px;"></i>Sản phẩm</a></li>
+            <li><a href="about.html"><i class="fa-solid fa-angle-right" style="margin-right:6px;"></i>Giới thiệu</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-angle-right" style="margin-right:6px;"></i>Liên hệ</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Danh mục sản phẩm</h4>
+          <h4><i class="fa-solid fa-microchip" style="margin-right:6px;"></i>Danh mục sản phẩm</h4>
           <ul class="footer-links">
-            <li><a href="index.html?category=Gaming%20Mouse#catalog">Gaming Mouse</a></li>
-            <li><a href="index.html?category=Mechanical%20Keyboard#catalog">Mechanical Keyboard</a></li>
-            <li><a href="index.html?category=Monitor#catalog">Monitor 146Hz</a></li>
-            <li><a href="index.html?category=Gaming%20Headset#catalog">Gaming Headset</a></li>
-            <li><a href="index.html?category=Mousepad#catalog">Mousepad</a></li>
-            <li><a href="index.html?category=Game%20Controller#catalog">Game Controller</a></li>
+            <li><a href="index.html?category=Gaming%20Mouse#catalog"><i class="fa-solid fa-computer-mouse" style="margin-right:6px;"></i>Gaming Mouse</a></li>
+            <li><a href="index.html?category=Mechanical%20Keyboard#catalog"><i class="fa-solid fa-keyboard" style="margin-right:6px;"></i>Mechanical Keyboard</a></li>
+            <li><a href="index.html?category=Monitor#catalog"><i class="fa-solid fa-desktop" style="margin-right:6px;"></i>Monitor 146Hz</a></li>
+            <li><a href="index.html?category=Gaming%20Headset#catalog"><i class="fa-solid fa-headset" style="margin-right:6px;"></i>Gaming Headset</a></li>
+            <li><a href="index.html?category=Mousepad#catalog"><i class="fa-solid fa-border-all" style="margin-right:6px;"></i>Mousepad</a></li>
+            <li><a href="index.html?category=Game%20Controller#catalog"><i class="fa-solid fa-gamepad" style="margin-right:6px;"></i>Game Controller</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Thông tin đồ án</h4><!DOCTYPE html>
-<html lang="vi">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gay Tech Store | Gaming gear khó, có Gay Tech lo!</title>
-  <meta name="description" content="Gay Tech Store - Cửa hàng thiết bị gaming, phụ kiện máy tính và giải trí dành cho sinh viên. Đồ án môn CSC00004 Nhập môn CNTT.">
-  <!-- Liên kết 2 file CSS: Giao diện chính và Giao diện di động -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/responsive.css">
-</head>
-<body>
-
-  <!-- 1. THANH THÔNG BÁO ĐẦU TRANG (Announcement Bar) -->
-  <div class="announcement-bar">
-    ⚡ <strong>GAMING GEAR KHÓ, CÓ GAY TECH LO!</strong> — Giải pháp phụ kiện máy tính &amp; gaming gear vừa túi tiền sinh viên (Website mô phỏng đồ án CSC00004)
-  </div>
-
-  <!-- 2. THANH ĐIỀU HƯỚNG CỐ ĐỊNH (Sticky Header) -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <!-- Logo & Tên thương hiệu -->
-      <a href="index.html" class="brand-logo" aria-label="Trang chủ Gay Tech Store">
-        <img src="img/logo.jpg" alt="Logo Gay Tech Store">
-        <div class="brand-text-wrap">
-          <span class="brand-name">GAY <span>TECH</span> STORE</span>
-          <span class="brand-sub">Gaming gear khó, có Gay Tech lo!</span>
-        </div>
-      </a>
-
-      <!-- Thanh tìm kiếm nhanh trên Header -->
-      <div class="header-search">
-        <span class="search-icon">🔍</span>
-        <input type="text" id="headerSearchInput" placeholder="Tìm chuột, bàn phím, màn hình..." aria-label="Tìm kiếm sản phẩm">
-        <button type="button" id="headerSearchClear" class="clear-search-btn" aria-label="Xóa từ khóa">✕</button>
-      </div>
-
-      <!-- Menu điều hướng chính -->
-      <nav class="main-nav" id="mainNav" aria-label="Điều hướng chính">
-        <a href="index.html" class="nav-link active">Trang chủ</a>
-        <a href="#catalog" class="nav-link">Sản phẩm</a>
-        <a href="about.html" class="nav-link">Giới thiệu</a>
-        <a href="contact.html" class="nav-link">Liên hệ</a>
-      </nav>
-
-      <!-- Nút mở Giỏ hàng & Nút Menu trên điện thoại -->
-      <div class="header-actions">
-        <button type="button" class="cart-trigger-btn js-open-cart" aria-label="Mở giỏ hàng">
-          <span>🛒 Giỏ hàng</span>
-          <span class="cart-badge js-cart-count">0</span>
-        </button>
-        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-label="Mở menu">
-          ☰
-        </button>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <!-- 3. BANNER MỞ ĐẦU TRANG CHỦ (Hero Section) -->
-    <section class="hero-section">
-      <div class="container hero-grid">
-        <div>
-          <div class="hero-eyebrow">🎮 GAY TECH STORE • STUDENT GAMING GEAR</div>
-          <h1 class="hero-title">
-            LEVEL UP YOUR GAME.
-            <span class="highlight">UPGRADE YOUR EXPERIENCE.</span>
-          </h1>
-          <p class="hero-desc">
-            Không cần đầu tư quá nhiều để sở hữu một góc gaming chất lượng. Gay Tech giúp bạn lựa chọn gaming gear phù hợp với nhu cầu và ngân sách.
-          </p>
-          <div class="hero-cta-group">
-            <a href="#catalog" class="btn btn-primary">KHÁM PHÁ SẢN PHẨM</a>
-            <a href="about.html" class="btn btn-secondary">TÌM HIỂU VỀ CHÚNG TÔI</a>
-          </div>
-          <div class="hero-highlights">
-            <div class="hero-stat-item">
-              <strong>6 Danh mục</strong>
-              <span>Chọn lọc thiết thực cho sinh viên</span>
-            </div>
-            <div class="hero-stat-item">
-              <strong>Từ 490.000đ</strong>
-              <span>Chi phí hợp lý, minh bạch</span>
-            </div>
-            <div class="hero-stat-item">
-              <strong>Đặt hàng nhanh</strong>
-              <span>Trải nghiệm giỏ hàng trực quan</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Khung hình ảnh sản phẩm nổi bật bên phải -->
-        <div class="hero-visual">
-          <div class="hero-showcase-card">
-            <div class="hero-main-img-wrap" data-id="gts-monitor-vg249" title="Nhấn để xem chi tiết màn hình ASUS 146Hz">
-              <img src="img/manHinh.jpg" alt="Màn hình ASUS TUF Gaming VG249QE5A 24-inch">
-            </div>
-            <div class="hero-mini-grid">
-              <div class="hero-mini-card" data-id="gts-mouse-g305">
-                <img src="img/chuot.jpg" alt="Logitech G305 X Lightspeed White">
-                <span>Chuột G305 X</span>
-              </div>
-              <div class="hero-mini-card" data-id="gts-kb-dareu-flex75">
-                <img src="img/phim.jpg" alt="DareU Flex 75 Wireless">
-                <span>Phím DareU 75</span>
-              </div>
-              <div class="hero-mini-card" data-id="gts-pad-dualsense">
-                <img src="img/tayCam.png" alt="PS5 DualSense Controller">
-                <span>Tay cầm PS5</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. GIỚI THIỆU SỨ MỆNH THƯƠNG HIỆU (Brand Introduction) -->
-    <section class="section">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">SỨ MỆNH KHỞI NGHIỆP</span>
-          <h2 class="section-title">TECHNOLOGY FOR YOUR EVERYDAY GAME.</h2>
-          <p class="section-subtitle">
-            Gay Tech Store ra đời nhằm giải quyết bài toán quen thuộc của sinh viên: muốn nâng cấp góc máy học tập và chơi game nhưng bị choáng ngợp giữa hàng trăm mẫu mã đắt đỏ.
-          </p>
-        </div>
-
-        <div class="values-grid">
-          <div class="value-card">
-            <div class="value-icon">🎓</div>
-            <h3>Thân thiện với sinh viên</h3>
-            <p>Tập trung vào phân khúc giá dễ tiếp cận, phù hợp với ngân sách của sinh viên đại học.</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">✨</div>
-            <h3>Sản phẩm tuyển chọn</h3>
-            <p>Danh mục cô đọng gồm những mẫu chuột, bàn phím, màn hình và tai nghe thực dụng nhất.</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">💻</div>
-            <h3>Công nghệ thiết thực</h3>
-            <p>Đáp ứng đồng thời nhu cầu học tập, lập trình, họp nhóm trực tuyến và giải trí.</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">⚡</div>
-            <h3>Mua sắm tiện lợi</h3>
-            <p>Tìm kiếm, lọc danh mục, so sánh giá và đặt hàng thử nghiệm mượt mà ngay trên điện thoại.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5. DANH MỤC SẢN PHẨM TRỰC QUAN (Category Showcase) -->
-    <section class="section section-alt">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">DANH MỤC THIẾT BỊ</span>
-          <h2 class="section-title">CHỌN NHANH THEO NHU CẦU SETUP</h2>
-          <p class="section-subtitle">Nhấn vào từng danh mục để lọc ngay sản phẩm tương ứng bên dưới.</p>
-        </div>
-
-        <!-- Khung này sẽ được js/app.js tự động đổ 6 danh mục từ file js/products.js -->
-        <div class="category-grid" id="categoryShowcaseGrid"></div>
-      </div>
-    </section>
-
-    <!-- 6. KHU VỰC CỬA HÀNG: TÌM KIẾM, BỘ LỌC, SẮP XẾP & DANH SÁCH SẢN PHẨM -->
-    <section class="section" id="catalog">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">KHO SẢN PHẨM CHÍNH HÃNG</span>
-          <h2 class="section-title">DANH MỤC SẢN PHẨM NỔI BẬT</h2>
-          <p class="section-subtitle">Trải nghiệm tìm kiếm thời gian thực, lọc theo danh mục và sắp xếp theo mức giá.</p>
-        </div>
-
-        <!-- Thanh công cụ điều khiển danh sách sản phẩm -->
-        <div class="catalog-toolbar">
-          <div class="toolbar-top">
-            <div class="catalog-search-box">
-              <span class="search-icon">🔍</span>
-              <input type="text" id="catalogSearchInput" placeholder="Nhập tên sản phẩm, danh mục hoặc từ khóa (VD: 146Hz, không dây, Razer)..." aria-label="Tìm sản phẩm">
-              <button type="button" id="catalogSearchClear" class="clear-btn" aria-label="Xóa tìm kiếm">✕</button>
-            </div>
-            <div class="sort-box">
-              <label for="sortSelect">Sắp xếp:</label>
-              <select id="sortSelect">
-                <option value="default">Mặc định (Đề xuất)</option>
-                <option value="price-asc">Giá: thấp đến cao</option>
-                <option value="price-desc">Giá: cao đến thấp</option>
-                <option value="name-asc">Tên sản phẩm A–Z</option>
-                <option value="name-desc">Tên sản phẩm Z–A</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Các nút bấm lọc danh mục được tạo tự động bởi js/app.js -->
-          <div class="filter-pills" id="filterPillsContainer" role="tablist" aria-label="Bộ lọc danh mục"></div>
-        </div>
-
-        <!-- Lưới hiển thị các thẻ sản phẩm được tạo tự động bởi js/app.js -->
-        <div class="products-grid" id="productsGrid"></div>
-      </div>
-    </section>
-
-    <!-- 7. VÌ SAO CHỌN GAY TECH STORE? (Why Choose Us) -->
-    <section class="section section-alt">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">LỢI THẾ CẠNH TRANH</span>
-          <h2 class="section-title">VÌ SAO SINH VIÊN CHỌN GAY TECH STORE?</h2>
-          <p class="section-subtitle">Giải pháp mua sắm thiết bị công nghệ được thiết kế riêng cho nhu cầu học tập và giải trí của sinh viên.</p>
-        </div>
-
-        <div class="values-grid">
-          <div class="value-card">
-            <div class="value-icon">🎯</div>
-            <h3>Tư vấn đúng nhu cầu</h3>
-            <p>Không chạy theo cấu hình đắt đỏ không cần thiết, tập trung vào trải nghiệm thực tế của sinh viên.</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">💰</div>
-            <h3>Tối ưu ngân sách</h3>
-            <p>Các sản phẩm được cân đối kỹ về hiệu năng trên giá thành, giúp tiết kiệm chi phí đầu tư ban đầu.</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">📱</div>
-            <h3>Tối ưu cho di động</h3>
-            <p>Quét mã QR tại buổi triển lãm poster là có thể xem chi tiết và đặt hàng thử ngay trên smartphone.</p>
-          </div>
-          <div class="value-card">
-            <div class="value-icon">🛡️</div>
-            <h3>Mô hình minh bạch</h3>
-            <p>Thông tin giá bán, mô tả sản phẩm và luồng xác nhận đơn hàng rõ ràng, trực quan.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. BANNER QUẢNG BÁ (Promotional Banner) -->
-    <section class="section">
-      <div class="container">
-        <div class="promo-banner">
-          <div>
-            <span class="section-tag">GAY TECH STORE CAMPAIGN</span>
-            <h2>YOUR SETUP. YOUR RULES. YOUR EXPERIENCE.</h2>
-            <p>Khám phá gaming gear phù hợp với phong cách của bạn.</p>
-          </div>
-          <a href="#catalog" class="btn btn-primary">MUA SẮM NGAY</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- 9. CHÂN TRANG (Footer) -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <a href="index.html" class="brand-logo" style="margin-bottom:14px;">
-            <img src="img/logo.jpg" alt="Logo Gay Tech Store">
-            <div class="brand-text-wrap">
-              <span class="brand-name">GAY <span>TECH</span> STORE</span>
-              <span class="brand-sub">Gaming gear khó, có Gay Tech lo!</span>
-            </div>
-          </a>
-          <p style="color:var(--text-secondary); font-size:0.9rem;">
-            Dự án startup thương mại điện tử cung cấp thiết bị gaming và phụ kiện máy tính dành cho sinh viên.
-          </p>
-        </div>
-
-        <div class="footer-col">
-          <h4>Điều hướng</h4>
-          <ul class="footer-links">
-            <li><a href="index.html">Trang chủ</a></li>
-            <li><a href="#catalog">Sản phẩm</a></li>
-            <li><a href="about.html">Giới thiệu</a></li>
-            <li><a href="contact.html">Liên hệ</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Danh mục sản phẩm</h4>
-          <ul class="footer-links">
-            <li><a href="index.html?category=Gaming%20Mouse#catalog">Gaming Mouse</a></li>
-            <li><a href="index.html?category=Mechanical%20Keyboard#catalog">Mechanical Keyboard</a></li>
-            <li><a href="index.html?category=Monitor#catalog">Monitor 146Hz</a></li>
-            <li><a href="index.html?category=Gaming%20Headset#catalog">Gaming Headset</a></li>
-            <li><a href="index.html?category=Mousepad#catalog">Mousepad</a></li>
-            <li><a href="index.html?category=Game%20Controller#catalog">Game Controller</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Thông tin đồ án</h4>
+          <h4><i class="fa-solid fa-graduation-cap" style="margin-right:6px;"></i>Thông tin đồ án</h4>
           <p style="color:var(--text-secondary); font-size:0.88rem; margin-bottom:8px;">
             Học phần: <strong>CSC00004 – Nhập môn Công nghệ Thông tin</strong> (Đồ án 1).
           </p>
@@ -600,51 +316,22 @@
     </div>
   </footer>
 
-  <!-- 10. CỬA SỔ XEM CHI TIẾT SẢN PHẨM (Product Detail Modal) -->
+  <!-- 10. CỬA SỔ XEM CHI TIẾT SẢN PHẨM -->
   <div class="modal-container" id="productDetailModal" role="dialog" aria-modal="true" aria-label="Chi tiết sản phẩm">
     <div class="modal-box">
-      <button type="button" class="modal-close-btn" id="closeProductModalBtn" aria-label="Đóng">✕</button>
+      <button type="button" class="modal-close-btn" id="closeProductModalBtn" aria-label="Đóng">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
       <div id="productModalContent"></div>
     </div>
   </div>
 
   <!-- Nút cuộn nhanh lên đầu trang -->
-  <button type="button" class="back-to-top" id="backToTopBtn" aria-label="Lên đầu trang">↑</button>
+  <button type="button" class="back-to-top" id="backToTopBtn" aria-label="Lên đầu trang">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 
-  <!-- 11. NẠP 4 MODULE JAVASCRIPT THEO THỨ TỰ -->
-  <script src="js/products.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/checkout.js"></script>
-  <script src="js/app.js"></script>
-</body>
-</html>
-          <p style="color:var(--text-secondary); font-size:0.88rem; margin-bottom:8px;">
-            Học phần: <strong>CSC00004 – Nhập môn Công nghệ Thông tin</strong> (Đồ án 1).
-          </p>
-          <p style="color:var(--text-secondary); font-size:0.88rem;">
-            Khoa Công nghệ Thông tin, Trường ĐH Khoa học Tự nhiên, ĐHQG-HCM.
-          </p>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        © 2026 Gay Tech Store. Website mô phỏng phục vụ học tập — Không phát sinh giao dịch tài chính thật và không thu thập dữ liệu cá nhân thật.
-      </div>
-    </div>
-  </footer>
-
-  <!-- 10. CỬA SỔ XEM CHI TIẾT SẢN PHẨM (Product Detail Modal) -->
-  <div class="modal-container" id="productDetailModal" role="dialog" aria-modal="true" aria-label="Chi tiết sản phẩm">
-    <div class="modal-box">
-      <button type="button" class="modal-close-btn" id="closeProductModalBtn" aria-label="Đóng">✕</button>
-      <div id="productModalContent"></div>
-    </div>
-  </div>
-
-  <!-- Nút cuộn nhanh lên đầu trang -->
-  <button type="button" class="back-to-top" id="backToTopBtn" aria-label="Lên đầu trang">↑</button>
-
-  <!-- 11. NẠP 4 MODULE JAVASCRIPT THEO THỨ TỰ -->
+  <!-- 11. NẠP 4 MODULE JAVASCRIPT -->
   <script src="js/products.js"></script>
   <script src="js/cart.js"></script>
   <script src="js/checkout.js"></script>

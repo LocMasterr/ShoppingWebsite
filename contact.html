@@ -5,17 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Liên hệ | Gay Tech Store</title>
   <meta name="description" content="Liên hệ với đội ngũ Gay Tech Store để được tư vấn lựa chọn gaming gear và phụ kiện máy tính phù hợp.">
+  <link rel="icon" type="image/jpeg" href="img/logo.jpg">
+  <link rel="apple-touch-icon" href="img/logo.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 
-  <!-- 1. THANH THÔNG BÁO ĐẦU TRANG -->
   <div class="announcement-bar">
-    ⚡ <strong>GAMING GEAR KHÓ, CÓ GAY TECH LO!</strong> — Giải pháp phụ kiện máy tính &amp; gaming gear vừa túi tiền sinh viên (Website mô phỏng đồ án CSC00004)
+    <i class="fa-solid fa-bolt" style="color:var(--yellow-primary); margin-right:6px;"></i>
+    <strong>GAMING GEAR KHÓ, CÓ GAY TECH LO!</strong> — Giải pháp phụ kiện máy tính &amp; gaming gear vừa túi tiền sinh viên (Website mô phỏng đồ án CSC00004)
   </div>
 
-  <!-- 2. HEADER DÙNG CHUNG -->
   <header class="site-header">
     <div class="container header-inner">
       <a href="index.html" class="brand-logo" aria-label="Trang chủ Gay Tech Store">
@@ -27,33 +29,36 @@
       </a>
 
       <div class="header-search">
-        <span class="search-icon">🔍</span>
+        <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
         <input type="text" id="headerSearchInput" placeholder="Tìm chuột, bàn phím, màn hình..." aria-label="Tìm kiếm">
-        <button type="button" id="headerSearchClear" class="clear-search-btn" aria-label="Xóa">✕</button>
+        <button type="button" id="headerSearchClear" class="clear-search-btn" aria-label="Xóa">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
 
       <nav class="main-nav" id="mainNav" aria-label="Điều hướng chính">
-        <a href="index.html" class="nav-link">Trang chủ</a>
-        <a href="index.html#catalog" class="nav-link">Sản phẩm</a>
-        <a href="about.html" class="nav-link">Giới thiệu</a>
-        <a href="contact.html" class="nav-link active">Liên hệ</a>
+        <a href="index.html" class="nav-link"><i class="fa-solid fa-house" style="margin-right:6px;"></i>Trang chủ</a>
+        <a href="index.html#catalog" class="nav-link"><i class="fa-solid fa-gamepad" style="margin-right:6px;"></i>Sản phẩm</a>
+        <a href="about.html" class="nav-link"><i class="fa-solid fa-users" style="margin-right:6px;"></i>Giới thiệu</a>
+        <a href="contact.html" class="nav-link active"><i class="fa-solid fa-envelope" style="margin-right:6px;"></i>Liên hệ</a>
       </nav>
 
       <div class="header-actions">
         <button type="button" class="cart-trigger-btn js-open-cart" aria-label="Mở giỏ hàng">
-          <span>🛒 Giỏ hàng</span>
+          <span><i class="fa-solid fa-cart-shopping" style="color:var(--yellow-primary); margin-right:6px;"></i>Giỏ hàng</span>
           <span class="cart-badge js-cart-count">0</span>
         </button>
-        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-label="Mở menu">☰</button>
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-label="Mở menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- 3. BANNER LIÊN HỆ (Contact Hero) -->
     <section class="page-hero">
       <div class="container">
-        <span class="section-tag">KẾT NỐI VỚI NHÓM DỰ ÁN</span>
+        <span class="section-tag"><i class="fa-solid fa-headset" style="margin-right:6px;"></i>KẾT NỐI VỚI NHÓM DỰ ÁN</span>
         <h1 class="hero-title" style="margin-bottom:14px;">LET'S TALK <span style="color:var(--yellow-primary);">TECHNOLOGY.</span></h1>
         <p class="section-subtitle" style="max-width:680px; margin:0 auto;">
           Bạn cần hỗ trợ lựa chọn gaming gear hoặc muốn tìm hiểu thêm về Gay Tech Store? Hãy để lại lời nhắn cho chúng tôi.
@@ -61,13 +66,11 @@
       </div>
     </section>
 
-    <!-- 4. THÔNG TIN DỰ ÁN & BIỂU MẪU GỬI LỜI NHẮN -->
     <section class="section">
       <div class="container two-col-grid">
-        <!-- Cột trái: Thông tin xác thực của đồ án -->
         <div>
           <div class="value-card" style="margin-bottom:20px;">
-            <span class="section-tag">THÔNG TIN DỰ ÁN</span>
+            <span class="section-tag"><i class="fa-solid fa-building-columns" style="margin-right:6px;"></i>THÔNG TIN DỰ ÁN</span>
             <h2 style="font-size:1.4rem; margin-bottom:14px;">Gay Tech Store — Đồ án 1 CSC00004</h2>
             <p style="margin-bottom:14px;">
               Website này là sản phẩm trình bày tại buổi triển lãm Poster học phần <strong>Nhập môn Công nghệ Thông tin (CSC00004)</strong> — Khoa Công nghệ Thông tin, Trường Đại học Khoa học Tự nhiên, ĐHQG-HCM.
@@ -81,58 +84,60 @@
           </div>
 
           <div class="value-card">
-            <h3 style="margin-bottom:8px;">Góp ý trực tiếp tại buổi Poster</h3>
+            <h3 style="margin-bottom:8px;"><i class="fa-solid fa-qrcode" style="color:var(--yellow-primary); margin-right:8px;"></i>Góp ý trực tiếp tại buổi Poster</h3>
             <p>
               Trong buổi trình bày Poster trên lớp, các bạn sinh viên ghé thăm gian hàng có thể trải nghiệm trực tiếp trên điện thoại qua mã QR, đặt câu hỏi cho thành viên trực poster và ghi nhận xét vào phiếu tham quan.
             </p>
           </div>
         </div>
 
-        <!-- Cột phải: Biểu mẫu liên hệ có kiểm tra dữ liệu (Validation) -->
         <div class="value-card">
-          <span class="section-tag">BIỂU MẪU MÔ PHỎNG</span>
+          <span class="section-tag"><i class="fa-solid fa-paper-plane" style="margin-right:6px;"></i>BIỂU MẪU MÔ PHỎNG</span>
           <h2 style="font-size:1.4rem; margin-bottom:10px;">Gửi lời nhắn cho Gay Tech Store</h2>
           <div class="demo-alert">
-            ℹ️ Biểu mẫu dưới đây hoạt động ở chế độ trình diễn (Client-side Demo). Dữ liệu không gửi đi máy chủ bên ngoài; vui lòng chỉ dùng thông tin giả lập.
+            <i class="fa-solid fa-circle-info" style="color:var(--yellow-primary); margin-right:6px;"></i>
+            Biểu mẫu dưới đây hoạt động ở chế độ trình diễn (Client-side Demo). Dữ liệu không gửi đi máy chủ bên ngoài; vui lòng chỉ dùng thông tin giả lập.
           </div>
 
           <div id="contactSuccessBanner" style="display:none; background:rgba(53, 201, 138, 0.14); border:1px solid var(--success); color:var(--text-main); padding:14px; border-radius:var(--radius-sm); margin-bottom:16px;">
-            ✅ <strong>Đã gửi lời nhắn thành công (Mô phỏng)!</strong> Cảm ơn bạn đã đóng góp ý kiến cho dự án Gay Tech Store.
+            <i class="fa-solid fa-circle-check" style="color:var(--success); margin-right:6px;"></i>
+            <strong>Đã gửi lời nhắn thành công (Mô phỏng)!</strong> Cảm ơn bạn đã đóng góp ý kiến cho dự án Gay Tech Store.
           </div>
 
           <form id="contactDemoForm" novalidate>
             <div class="form-group">
-              <label for="contactName">Họ và tên (Tên giả lập) *</label>
+              <label for="contactName"><i class="fa-solid fa-user" style="margin-right:6px; color:var(--yellow-primary);"></i>Họ và tên (Tên giả lập) *</label>
               <input type="text" id="contactName" class="form-control" placeholder="VD: Bạn cùng lớp 26C04">
               <div class="form-error">Vui lòng nhập tên (tối thiểu 2 ký tự).</div>
             </div>
 
             <div class="form-group">
-              <label for="contactEmail">Email liên hệ (Email mẫu) *</label>
+              <label for="contactEmail"><i class="fa-solid fa-at" style="margin-right:6px; color:var(--yellow-primary);"></i>Email liên hệ (Email mẫu) *</label>
               <input type="email" id="contactEmail" class="form-control" placeholder="VD: demo@student.hcmus.edu.vn">
               <div class="form-error">Vui lòng nhập đúng định dạng email (ví dụ: ten@domain.com).</div>
             </div>
 
             <div class="form-group">
-              <label for="contactSubject">Chủ đề cần tư vấn *</label>
+              <label for="contactSubject"><i class="fa-solid fa-tag" style="margin-right:6px; color:var(--yellow-primary);"></i>Chủ đề cần tư vấn *</label>
               <input type="text" id="contactSubject" class="form-control" placeholder="VD: Tư vấn combo bàn phím + chuột dưới 1.5 triệu">
               <div class="form-error">Vui lòng nhập chủ đề (tối thiểu 3 ký tự).</div>
             </div>
 
             <div class="form-group">
-              <label for="contactMessage">Nội dung lời nhắn *</label>
+              <label for="contactMessage"><i class="fa-solid fa-comment-dots" style="margin-right:6px; color:var(--yellow-primary);"></i>Nội dung lời nhắn *</label>
               <textarea id="contactMessage" class="form-control" rows="4" placeholder="Nhập câu hỏi hoặc góp ý của bạn cho nhóm..."></textarea>
               <div class="form-error">Nội dung lời nhắn cần tối thiểu 10 ký tự.</div>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width:100%;">GỬI LỜI NHẮN (DEMO)</button>
+            <button type="submit" class="btn btn-primary" style="width:100%;">
+              <i class="fa-solid fa-paper-plane"></i> GỬI LỜI NHẮN (DEMO)
+            </button>
           </form>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- 5. CHÂN TRANG (Footer) -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
@@ -150,50 +155,19 @@
         </div>
 
         <div class="footer-col">
-          <h4>Điều hướng</h4>
+          <h4><i class="fa-solid fa-compass" style="margin-right:6px;"></i>Điều hướng</h4>
           <ul class="footer-links">
-            <li><a href="index.html">Trang chủ</a></li>
-            <li><a href="index.html#catalog">Sản phẩm</a></li>
-            <li><a href="about.html">Giới thiệu</a></li>
-            <li><a href="contact.html">Liên hệ</a></li>
+            <li><a href="index.html"><i class="fa-solid fa-angle-right" style="margin-right:6px;"></i>Trang chủ</a></li>
+            <li><a href="index.html#catalog"><i class="fa-solid fa-angle-right" style="margin-right:6px;"></i>Sản phẩm</a></li>
+            <li><a href="about.html"><i class="fa-solid fa-angle-right" style="margin-right:6px;"></i>Giới thiệu</a></li>
+            <li><a href="contact.html"><i class="fa-solid fa-angle-right" style="margin-right:6px;"></i>Liên hệ</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Danh mục sản phẩm</h4>
+          <h4><i class="fa-solid fa-microchip" style="margin-right:6px;"></i>Danh mục sản phẩm</h4>
           <ul class="footer-links">
-            <li><a href="index.html?category=Gaming%20Mouse#catalog">Gaming Mouse</a></li>
-            <li><a href="index.html?category=Mechanical%20Keyboard#catalog">Mechanical Keyboard</a></li>
-            <li><a href="index.html?category=Monitor#catalog">Monitor 146Hz</a></li>
-            <li><a href="index.html?category=Gaming%20Headset#catalog">Gaming Headset</a></li>
-            <li><a href="index.html?category=Mousepad#catalog">Mousepad</a></li>
-            <li><a href="index.html?category=Game%20Controller#catalog">Game Controller</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-col">
-          <h4>Thông tin đồ án</h4>
-          <p style="color:var(--text-secondary); font-size:0.88rem; margin-bottom:8px;">
-            Học phần: <strong>CSC00004 – Nhập môn Công nghệ Thông tin</strong> (Đồ án 1).
-          </p>
-          <p style="color:var(--text-secondary); font-size:0.88rem;">
-            Khoa Công nghệ Thông tin, Trường ĐH Khoa học Tự nhiên, ĐHQG-HCM.
-          </p>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        © 2026 Gay Tech Store — "Gaming gear khó, có Gay Tech lo!". Đồ án 1 môn CSC00004 Nhập môn CNTT.
-      </div>
-    </div>
-  </footer>
-
-  <button type="button" class="back-to-top" id="backToTopBtn" aria-label="Lên đầu trang">↑</button>
-
-  <!-- Nạp 4 module JS -->
-  <script src="js/products.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/checkout.js"></script>
-  <script src="js/app.js"></script>
-</body>
-</html>
+            <li><a href="index.html?category=Gaming%20Mouse#catalog"><i class="fa-solid fa-computer-mouse" style="margin-right:6px;"></i>Gaming Mouse</a></li>
+            <li><a href="index.html?category=Mechanical%20Keyboard#catalog"><i class="fa-solid fa-keyboard" style="margin-right:6px;"></i>Mechanical Keyboard</a></li>
+            <li><a href="index.html?category=Monitor#catalog"><i class="fa-solid fa-desktop" style="margin-right:6px;"></i>Monitor 146Hz</a></li>
+            <li><a href="index.html?category=Gaming%20Headset#catalog"><i class="fa-solid fa-headset" style="margin-right:6px;"></i>
