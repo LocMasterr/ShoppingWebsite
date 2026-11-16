@@ -1,13 +1,6 @@
 /**
- * =========================================================
- * MODULE THANH TOÁN & XÁC NHẬN ĐƠN HÀNG (js/checkout.js)
- * =========================================================
- * Nhiệm vụ:
- * 1. Tự động gắn cửa sổ Thanh toán mô phỏng vào mọi trang
- * 2. Cung cấp nút "Điền nhanh thông tin mẫu (Demo)" cho khách quét QR tại buổi Poster
- * 3. Kiểm tra hợp lệ dữ liệu và xuất màn hình Xác nhận đơn hàng kèm mã đơn GTS-XXXXXX
+ * MODULE THANH TOÁN ĐÃ KHẮC PHỤC LỖI NHÂN ĐÔI (js/checkout.js)
  */
-
 const CheckoutModule = (function () {
   const paymentDescriptions = {
     "Thanh toán khi nhận hàng (Demo)":
@@ -19,7 +12,7 @@ const CheckoutModule = (function () {
   };
 
   function injectCheckoutModalHTML() {
-    if (document.getElementById("checkoutModal")) return;
+    document.getElementById("checkoutModal")?.remove();
 
     const wrapper = document.createElement("div");
     wrapper.innerHTML = `
@@ -27,7 +20,6 @@ const CheckoutModule = (function () {
         <div class="modal-box checkout-modal-box">
           <button type="button" class="modal-close-btn" id="closeCheckoutModalBtn" aria-label="Đóng">✕</button>
 
-          <!-- Màn hình 1: Biểu mẫu nhập thông tin đặt hàng giả lập -->
           <div id="checkoutFormView">
             <h2 style="margin-bottom:12px;">Thanh toán đơn hàng (Chế độ mô phỏng)</h2>
             <div class="demo-alert">
@@ -114,7 +106,6 @@ const CheckoutModule = (function () {
             </form>
           </div>
 
-          <!-- Màn hình 2: Xác nhận đặt hàng thành công -->
           <div id="checkoutSuccessView" style="display:none; text-align:center; padding:16px 0;">
             <div style="font-size:3rem; margin-bottom:8px;">🎉</div>
             <h2 style="color:var(--success); margin-bottom:6px;">ĐẶT HÀNG THÀNH CÔNG!</h2>
@@ -132,8 +123,8 @@ const CheckoutModule = (function () {
   }
 
   function renderSummary() {
-    const items = CartModule.getItems();
-    const subtotal = CartModule.getSubtotal();
+    const items = CartModule.getCheckoutItems();
+    const subtotal = CartModule.getCheckoutSubtotal();
     const listEl = document.getElementById("checkoutOrderItems");
     if (!listEl) return;
 
@@ -153,8 +144,9 @@ const CheckoutModule = (function () {
   }
 
   function openModal() {
-    if (CartModule.getCount() === 0) {
-      CartModule.showToast("Giỏ hàng đang trống. Vui lòng chọn sản phẩm trước!");
+    const items = CartModule.getCheckoutItems();
+    if (items.length === 0) {
+      CartModule.showToast("Vui lòng chọn ít nhất 1 sản phẩm trước khi đặt hàng!");
       return;
     }
     CartModule.closeDrawer();
@@ -165,42 +157,43 @@ const CheckoutModule = (function () {
   }
 
   function closeModal() {
+    CartModule.clearSingleBuyItem();
     document.getElementById("checkoutModal")?.classList.remove("open");
   }
 
   function init() {
+    if (window.__GTS_CHECKOUT_INIT__) return;
+    window.__GTS_CHECKOUT_INIT__ = true;
+
     injectCheckoutModalHTML();
 
     const modalEl = document.getElementById("checkoutModal");
-    modalEl?.addEventListener("click", (e) => {
+    modalEl.onclick = (e) => {
       if (e.target === modalEl) closeModal();
-    });
+    };
 
-    document.getElementById("closeCheckoutModalBtn")?.addEventListener("click", closeModal);
-    document.getElementById("continueAfterOrderBtn")?.addEventListener("click", closeModal);
+    document.getElementById("closeCheckoutModalBtn").onclick = closeModal;
+    document.getElementById("continueAfterOrderBtn").onclick = closeModal;
 
-    // Nút điền nhanh dữ liệu giả lập
-    document.getElementById("fillDemoDataBtn")?.addEventListener("click", () => {
+    document.getElementById("fillDemoDataBtn").onclick = () => {
       document.getElementById("custName").value = "Sinh Viên Thử Nghiệm (Demo)";
       document.getElementById("custPhone").value = "0900123456";
       document.getElementById("custAddress").value = "Phòng Poster CSC00004 - ĐH Khoa học Tự nhiên";
       document.getElementById("custNote").value = "Đơn hàng thử nghiệm tại buổi trình bày poster.";
       document.querySelectorAll("#checkoutForm .form-group").forEach((g) => g.classList.remove("invalid"));
       CartModule.showToast("Đã điền thông tin mẫu (Demo)!");
-    });
+    };
 
-    // Đổi mô tả khi chọn phương thức thanh toán
     document.querySelectorAll('input[name="paymentMethod"]').forEach((radio) => {
-      radio.addEventListener("change", () => {
+      radio.onchange = () => {
         document.querySelectorAll(".payment-option").forEach((opt) => opt.classList.remove("selected"));
         radio.closest(".payment-option").classList.add("selected");
         const descEl = document.getElementById("paymentMethodDesc");
         if (descEl) descEl.textContent = paymentDescriptions[radio.value] || "";
-      });
+      };
     });
 
-    // Xử lý xác nhận đặt hàng
-    document.getElementById("checkoutForm")?.addEventListener("submit", (e) => {
+    document.getElementById("checkoutForm").onsubmit = (e) => {
       e.preventDefault();
       const nameInput = document.getElementById("custName");
       const phoneInput = document.getElementById("custPhone");
@@ -230,8 +223,8 @@ const CheckoutModule = (function () {
         document.querySelector('input[name="paymentMethod"]:checked')?.value ||
         "Thanh toán khi nhận hàng (Demo)";
       const orderId = "GTS-" + Math.floor(100000 + Math.random() * 900000);
-      const orderedItems = CartModule.getItems();
-      const finalTotal = CartModule.getSubtotal();
+      const orderedItems = CartModule.getCheckoutItems();
+      const finalTotal = CartModule.getCheckoutSubtotal();
 
       document.getElementById("orderConfirmationDetails").innerHTML = `
         <div style="background:var(--bg-primary); border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:18px; margin:18px 0; text-align:left;">
@@ -260,12 +253,18 @@ const CheckoutModule = (function () {
         </div>
       `;
 
-      CartModule.clear();
+      // Nếu là đặt từ giỏ hàng thì xóa giỏ, nếu là "Mua ngay 1 món" thì chỉ xóa biến tạm
+      if (CartModule.isSingleBuyMode()) {
+        CartModule.clearSingleBuyItem();
+      } else {
+        CartModule.clear();
+      }
+
       e.target.reset();
       document.getElementById("checkoutFormView").style.display = "none";
       document.getElementById("checkoutSuccessView").style.display = "block";
       CartModule.showToast("Đặt hàng mô phỏng thành công!");
-    });
+    };
   }
 
   return { init, openModal, closeModal };

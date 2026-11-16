@@ -1,14 +1,6 @@
 /**
- * =========================================================
- * MODULE ĐIỀU KHIỂN CHÍNH (js/app.js)
- * =========================================================
- * Nhiệm vụ:
- * 1. Đọc dữ liệu từ js/products.js để tự động vẽ Danh mục, Sản phẩm và Thành viên
- * 2. Xử lý Tìm kiếm thời gian thực, Lọc danh mục và Sắp xếp sản phẩm
- * 3. Quản lý Cửa sổ xem chi tiết sản phẩm (Product Detail Modal)
- * 4. Xử lý Menu trên điện thoại, nút Lên đầu trang và kiểm tra form Liên hệ
+ * MODULE ĐIỀU KHIỂN CHÍNH ĐÃ KHÓA LỖI TRÙNG ID & SỰ KIỆN (js/app.js)
  */
-
 (function () {
   let uiState = {
     searchQuery: "",
@@ -16,7 +8,18 @@
     sortBy: "default"
   };
 
-  // 1. Tự động vẽ 6 ô danh mục và dải nút bấm lọc danh mục
+  // Tự động kiểm tra và sửa nếu người dùng copy-paste thêm sản phẩm mà quên đổi ID
+  function ensureUniqueProductIds() {
+    if (typeof PRODUCTS_DATA === "undefined") return;
+    const seen = new Set();
+    PRODUCTS_DATA.forEach((p, idx) => {
+      if (!p.id || seen.has(p.id)) {
+        p.id = (p.id || "gts-prod") + "-" + (idx + 1);
+      }
+      seen.add(p.id);
+    });
+  }
+
   function renderDynamicCategories() {
     const showcaseGrid = document.getElementById("categoryShowcaseGrid");
     const filterPillsBox = document.getElementById("filterPillsContainer");
@@ -46,7 +49,6 @@
     }
   }
 
-  // 2. Tự động vẽ danh sách 5 thành viên ở trang about.html
   function renderDynamicTeam() {
     const teamGrid = document.getElementById("teamMembersGrid");
     if (!teamGrid || typeof TEAM_MEMBERS_DATA === "undefined") return;
@@ -63,7 +65,6 @@
     ).join("");
   }
 
-  // 3. Lọc và sắp xếp danh sách sản phẩm theo lựa chọn của người dùng
   function getFilteredAndSortedProducts() {
     let list = [...PRODUCTS_DATA];
 
@@ -95,7 +96,6 @@
     return list;
   }
 
-  // 4. Vẽ các thẻ sản phẩm ra lưới #productsGrid
   function renderCatalog() {
     const gridEl = document.getElementById("productsGrid");
     if (!gridEl) return;
@@ -118,15 +118,18 @@
           <button type="button" class="btn btn-primary btn-sm" id="resetCatalogFilterBtn">XEM TẤT CẢ SẢN PHẨM</button>
         </div>
       `;
-      document.getElementById("resetCatalogFilterBtn")?.addEventListener("click", () => {
-        uiState.searchQuery = "";
-        uiState.selectedCategory = "ALL";
-        uiState.sortBy = "default";
-        syncSearchInputs();
-        const sortSelect = document.getElementById("sortSelect");
-        if (sortSelect) sortSelect.value = "default";
-        renderCatalog();
-      });
+      const resetBtn = document.getElementById("resetCatalogFilterBtn");
+      if (resetBtn) {
+        resetBtn.onclick = () => {
+          uiState.searchQuery = "";
+          uiState.selectedCategory = "ALL";
+          uiState.sortBy = "default";
+          syncSearchInputs();
+          const sortSelect = document.getElementById("sortSelect");
+          if (sortSelect) sortSelect.value = "default";
+          renderCatalog();
+        };
+      }
       return;
     }
 
@@ -145,7 +148,7 @@
             <div class="product-footer">
               <div class="product-price">${CartModule.formatVND(product.price)}</div>
               <div class="product-actions">
-                <button type="button" class="btn btn-secondary btn-sm" data-action="detail" data-id="${product.id}">Xem chi tiết</button>
+                <button type="button" class="btn btn-secondary btn-sm" data-action="detail" data-id="${product.id}">Xem / Mua lẻ</button>
                 <button type="button" class="btn btn-primary btn-sm" data-action="add-cart" data-id="${product.id}">+ Thêm vào giỏ</button>
               </div>
             </div>
@@ -172,7 +175,6 @@
     if (catalogClear) catalogClear.classList.toggle("visible", uiState.searchQuery.length > 0);
   }
 
-  // 5. Mở cửa sổ xem chi tiết sản phẩm
   function openProductModal(productId) {
     const product = PRODUCTS_DATA.find((p) => p.id === productId);
     if (!product) return;
@@ -194,13 +196,14 @@
           <ul class="modal-highlights">
             ${(product.highlights || []).map((h) => `<li>${h}</li>`).join("")}
           </ul>
-          <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+          <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
             <div class="qty-Selector">
               <button type="button" id="modalQtyDec" aria-label="Giảm số lượng">−</button>
               <input type="text" id="modalQtyInput" value="1" readonly aria-label="Số lượng">
               <button type="button" id="modalQtyInc" aria-label="Tăng số lượng">+</button>
             </div>
-            <button type="button" class="btn btn-primary" id="modalAddToCartBtn">THÊM VÀO GIỎ HÀNG</button>
+            <button type="button" class="btn btn-secondary" id="modalAddToCartBtn">+ Thêm vào giỏ</button>
+            <button type="button" class="btn btn-primary" id="modalBuyNowSingleBtn">⚡ Mua ngay món này</button>
           </div>
         </div>
       </div>
@@ -208,21 +211,33 @@
 
     modal.classList.add("open");
     const qtyInput = document.getElementById("modalQtyInput");
-    document.getElementById("modalQtyDec").addEventListener("click", () => {
+
+    document.getElementById("modalQtyDec").onclick = () => {
       qtyInput.value = Math.max(1, (parseInt(qtyInput.value, 10) || 1) - 1);
-    });
-    document.getElementById("modalQtyInc").addEventListener("click", () => {
+    };
+    document.getElementById("modalQtyInc").onclick = () => {
       qtyInput.value = (parseInt(qtyInput.value, 10) || 1) + 1;
-    });
-    document.getElementById("modalAddToCartBtn").addEventListener("click", () => {
+    };
+    document.getElementById("modalAddToCartBtn").onclick = () => {
       CartModule.add(product.id, parseInt(qtyInput.value, 10) || 1);
       modal.classList.remove("open");
       CartModule.openDrawer();
-    });
+    };
+    // Nút Mua ngay: Đặt riêng đúng 1 sản phẩm này, không gộp với giỏ hàng cũ
+    document.getElementById("modalBuyNowSingleBtn").onclick = () => {
+      const qty = parseInt(qtyInput.value, 10) || 1;
+      if (CartModule.setSingleBuyItem(product.id, qty)) {
+        modal.classList.remove("open");
+        CheckoutModule.openModal();
+      }
+    };
   }
 
-  // 6. Khởi tạo toàn bộ sự kiện khi trang tải xong
   function init() {
+    if (window.__GTS_APP_INIT__) return;
+    window.__GTS_APP_INIT__ = true;
+
+    ensureUniqueProductIds();
     CartModule.init();
     CheckoutModule.init();
     renderDynamicCategories();
@@ -235,48 +250,55 @@
     syncSearchInputs();
     renderCatalog();
 
-    // Bắt sự kiện trên lưới sản phẩm
-    document.getElementById("productsGrid")?.addEventListener("click", (e) => {
-      const target = e.target.closest("[data-action]");
-      if (!target) return;
-      const { id, action } = target.dataset;
-      if (action === "detail") openProductModal(id);
-      if (action === "add-cart") CartModule.add(id, 1);
-    });
+    const gridEl = document.getElementById("productsGrid");
+    if (gridEl) {
+      gridEl.onclick = (e) => {
+        const target = e.target.closest("[data-action]");
+        if (!target) return;
+        const { id, action } = target.dataset;
+        if (action === "detail") openProductModal(id);
+        if (action === "add-cart") CartModule.add(id, 1);
+      };
+    }
 
-    // Bắt sự kiện bấm nút lọc danh mục
-    document.getElementById("filterPillsContainer")?.addEventListener("click", (e) => {
-      const pill = e.target.closest(".filter-pill");
-      if (!pill) return;
-      uiState.selectedCategory = pill.dataset.category;
-      renderCatalog();
-    });
+    const filterPillsEl = document.getElementById("filterPillsContainer");
+    if (filterPillsEl) {
+      filterPillsEl.onclick = (e) => {
+        const pill = e.target.closest(".filter-pill");
+        if (!pill) return;
+        uiState.selectedCategory = pill.dataset.category;
+        renderCatalog();
+      };
+    }
 
-    // Bắt sự kiện bấm vào 6 thẻ danh mục có ảnh
-    document.getElementById("categoryShowcaseGrid")?.addEventListener("click", (e) => {
-      const card = e.target.closest(".category-card");
-      if (!card) return;
-      uiState.selectedCategory = card.dataset.category;
-      renderCatalog();
-      document.getElementById("catalog")?.scrollIntoView({ behavior: "smooth" });
-    });
+    const showcaseEl = document.getElementById("categoryShowcaseGrid");
+    if (showcaseEl) {
+      showcaseEl.onclick = (e) => {
+        const card = e.target.closest(".category-card");
+        if (!card) return;
+        uiState.selectedCategory = card.dataset.category;
+        renderCatalog();
+        document.getElementById("catalog")?.scrollIntoView({ behavior: "smooth" });
+      };
+    }
 
-    // Bắt sự kiện bấm vào các ảnh sản phẩm trên Hero
     document.querySelectorAll("[data-id]").forEach((el) => {
       if (el.classList.contains("hero-mini-card") || el.classList.contains("hero-main-img-wrap")) {
-        el.addEventListener("click", () => openProductModal(el.dataset.id));
+        el.onclick = () => openProductModal(el.dataset.id);
       }
     });
 
     const productModalEl = document.getElementById("productDetailModal");
-    productModalEl?.addEventListener("click", (e) => {
-      if (e.target === productModalEl) productModalEl.classList.remove("open");
-    });
-    document.getElementById("closeProductModalBtn")?.addEventListener("click", () => {
-      productModalEl?.classList.remove("open");
-    });
+    if (productModalEl) {
+      productModalEl.onclick = (e) => {
+        if (e.target === productModalEl) productModalEl.classList.remove("open");
+      };
+    }
+    const closeProdBtn = document.getElementById("closeProductModalBtn");
+    if (closeProdBtn) {
+      closeProdBtn.onclick = () => productModalEl?.classList.remove("open");
+    }
 
-    // Xử lý tìm kiếm
     const onSearchChange = (val) => {
       uiState.searchQuery = val;
       syncSearchInputs();
@@ -285,8 +307,8 @@
 
     const headerSearchInput = document.getElementById("headerSearchInput");
     if (headerSearchInput) {
-      headerSearchInput.addEventListener("input", (e) => onSearchChange(e.target.value));
-      headerSearchInput.addEventListener("keydown", (e) => {
+      headerSearchInput.oninput = (e) => onSearchChange(e.target.value);
+      headerSearchInput.onkeydown = (e) => {
         if (e.key === "Enter") {
           e.preventDefault();
           const catalog = document.getElementById("catalog");
@@ -296,43 +318,50 @@
             window.location.href = `index.html?search=${encodeURIComponent(headerSearchInput.value)}#catalog`;
           }
         }
-      });
+      };
     }
 
-    document.getElementById("catalogSearchInput")?.addEventListener("input", (e) => onSearchChange(e.target.value));
-    document.getElementById("headerSearchClear")?.addEventListener("click", () => onSearchChange(""));
-    document.getElementById("catalogSearchClear")?.addEventListener("click", () => onSearchChange(""));
+    const catalogSearchInput = document.getElementById("catalogSearchInput");
+    if (catalogSearchInput) {
+      catalogSearchInput.oninput = (e) => onSearchChange(e.target.value);
+    }
 
-    document.getElementById("sortSelect")?.addEventListener("change", (e) => {
-      uiState.sortBy = e.target.value;
-      renderCatalog();
-    });
+    const hClear = document.getElementById("headerSearchClear");
+    if (hClear) hClear.onclick = () => onSearchChange("");
 
-    // Menu trên điện thoại
+    const cClear = document.getElementById("catalogSearchClear");
+    if (cClear) cClear.onclick = () => onSearchChange("");
+
+    const sortSelect = document.getElementById("sortSelect");
+    if (sortSelect) {
+      sortSelect.onchange = (e) => {
+        uiState.sortBy = e.target.value;
+        renderCatalog();
+      };
+    }
+
     const mobileBtn = document.getElementById("mobileMenuBtn");
     const mainNav = document.getElementById("mainNav");
     if (mobileBtn && mainNav) {
-      mobileBtn.addEventListener("click", () => {
+      mobileBtn.onclick = () => {
         const isOpen = mainNav.classList.toggle("open");
         mobileBtn.setAttribute("aria-expanded", String(isOpen));
-      });
+      };
     }
 
-    // Nút cuộn lên đầu trang
     const backToTopBtn = document.getElementById("backToTopBtn");
     if (backToTopBtn) {
       window.addEventListener("scroll", () => {
         backToTopBtn.classList.toggle("visible", window.scrollY > 360);
       });
-      backToTopBtn.addEventListener("click", () => {
+      backToTopBtn.onclick = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
-      });
+      };
     }
 
-    // Kiểm tra biểu mẫu Liên hệ (contact.html)
     const contactForm = document.getElementById("contactDemoForm");
     if (contactForm) {
-      contactForm.addEventListener("submit", (e) => {
+      contactForm.onsubmit = (e) => {
         e.preventDefault();
         const nameEl = document.getElementById("contactName");
         const emailEl = document.getElementById("contactEmail");
@@ -364,10 +393,9 @@
         if (banner) banner.style.display = "block";
         contactForm.reset();
         CartModule.showToast("Đã gửi lời nhắn (Mô phỏng) thành công!");
-      });
+      };
     }
 
-    // Đóng mọi cửa sổ khi bấm phím Escape
     window.addEventListener("keydown", (e) => {
       if (e.key === "Escape") {
         productModalEl?.classList.remove("open");
