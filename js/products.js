@@ -1,4 +1,4 @@
-/**
+  /**
  * =========================================================
  * TRUNG TÂM DỮ LIỆU GAY TECH STORE (js/products.js)
  * =========================================================
@@ -157,13 +157,13 @@ const TEAM_MEMBERS_DATA = [
     avatarText: "TV2",
     name: "Lê Trần Tấn Lộc",
     mssv: "26127258",
-    role: "Xây dựng dữ liệu sản phẩm & Nội dung thương hiệu"
+    role: "Thiết kế giao diện UI/UX & Tối ưu hiển thị di động"
   },
   {
     avatarText: "TV3",
     name: "Thành viên 3",
     mssv: "[Cập nhật MSSV]",
-    role: "Thiết kế giao diện UI/UX & Tối ưu hiển thị di động"
+    role: "Xây dựng dữ liệu sản phẩm & Nội dung thương hiệu"
   },
   {
     avatarText: "TV4",
