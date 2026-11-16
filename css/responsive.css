@@ -1,0 +1,115 @@
+/* =========================================================
+   RESPONSIVE STYLESHEET (css/responsive.css)
+   Tự động co giãn bố cục trên Laptop, Tablet và Smartphone
+   ========================================================= */
+
+/* Màn hình dưới 1200px (Laptop nhỏ) */
+@media (max-width: 1199px) {
+  .category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Màn hình dưới 992px (Máy tính bảng - Tablet) */
+@media (max-width: 991px) {
+  .hero-grid,
+  .modal-detail-grid,
+  .checkout-grid,
+  .two-col-grid {
+    grid-template-columns: 1fr;
+  }
+  .values-grid,
+  .products-grid,
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .header-search {
+    display: none;
+  }
+  .mobile-menu-btn {
+    display: inline-flex;
+  }
+  .main-nav {
+    position: fixed;
+    top: 76px;
+    left: 0;
+    right: 0;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    flex-direction: column;
+    padding: 16px;
+    display: none;
+    box-shadow: var(--shadow-card);
+  }
+  .main-nav.open {
+    display: flex;
+  }
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+  }
+}
+
+/* Màn hình dưới 768px (Điện thoại - Smartphone) */
+@media (max-width: 767px) {
+  .section {
+    padding: 52px 0;
+  }
+  .hero-section {
+    padding: 44px 0 56px;
+  }
+  .values-grid,
+  .products-grid,
+  .footer-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .promo-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px 20px;
+  }
+  .hero-highlights {
+    grid-template-columns: 1fr;
+  }
+  .modal-box {
+    padding: 20px 16px;
+  }
+  .modal-img-box {
+    height: 220px;
+  }
+}
+
+/* Màn hình điện thoại cỡ nhỏ dưới 480px (360px - 390px) */
+@media (max-width: 479px) {
+  .product-actions {
+    grid-template-columns: 1fr;
+  }
+  .brand-sub {
+    display: none;
+  }
+  .cart-trigger-btn span:first-child {
+    font-size: 0.82rem;
+  }
+  .toast-container {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+/* Tôn trọng cài đặt giảm chuyển động của thiết bị */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

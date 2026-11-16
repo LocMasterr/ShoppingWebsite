@@ -6,16 +6,19 @@
   <title>Liên hệ | Gay Tech Store</title>
   <meta name="description" content="Liên hệ với đội ngũ Gay Tech Store để được tư vấn lựa chọn gaming gear và phụ kiện máy tính phù hợp.">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 
+  <!-- 1. THANH THÔNG BÁO ĐẦU TRANG -->
   <div class="announcement-bar">
     ⚡ <strong>GAMING GEAR KHÓ, CÓ GAY TECH LO!</strong> — Giải pháp phụ kiện máy tính &amp; gaming gear vừa túi tiền sinh viên (Website mô phỏng đồ án CSC00004)
   </div>
 
+  <!-- 2. HEADER DÙNG CHUNG -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand-logo">
+      <a href="index.html" class="brand-logo" aria-label="Trang chủ Gay Tech Store">
         <img src="img/logo.jpg" alt="Logo Gay Tech Store">
         <div class="brand-text-wrap">
           <span class="brand-name">GAY <span>TECH</span> STORE</span>
@@ -26,10 +29,10 @@
       <div class="header-search">
         <span class="search-icon">🔍</span>
         <input type="text" id="headerSearchInput" placeholder="Tìm chuột, bàn phím, màn hình..." aria-label="Tìm kiếm">
-        <button type="button" id="headerSearchClear" class="clear-search-btn">✕</button>
+        <button type="button" id="headerSearchClear" class="clear-search-btn" aria-label="Xóa">✕</button>
       </div>
 
-      <nav class="main-nav" id="mainNav">
+      <nav class="main-nav" id="mainNav" aria-label="Điều hướng chính">
         <a href="index.html" class="nav-link">Trang chủ</a>
         <a href="index.html#catalog" class="nav-link">Sản phẩm</a>
         <a href="about.html" class="nav-link">Giới thiệu</a>
@@ -37,17 +40,17 @@
       </nav>
 
       <div class="header-actions">
-        <button type="button" class="cart-trigger-btn js-open-cart">
+        <button type="button" class="cart-trigger-btn js-open-cart" aria-label="Mở giỏ hàng">
           <span>🛒 Giỏ hàng</span>
           <span class="cart-badge js-cart-count">0</span>
         </button>
-        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false">☰</button>
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-label="Mở menu">☰</button>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- 11.1 Contact Hero -->
+    <!-- 3. BANNER LIÊN HỆ (Contact Hero) -->
     <section class="page-hero">
       <div class="container">
         <span class="section-tag">KẾT NỐI VỚI NHÓM DỰ ÁN</span>
@@ -58,9 +61,10 @@
       </div>
     </section>
 
-    <!-- 11.2 & 11.3 Contact Info + Form -->
+    <!-- 4. THÔNG TIN DỰ ÁN & BIỂU MẪU GỬI LỜI NHẮN -->
     <section class="section">
       <div class="container two-col-grid">
+        <!-- Cột trái: Thông tin xác thực của đồ án -->
         <div>
           <div class="value-card" style="margin-bottom:20px;">
             <span class="section-tag">THÔNG TIN DỰ ÁN</span>
@@ -84,6 +88,7 @@
           </div>
         </div>
 
+        <!-- Cột phải: Biểu mẫu liên hệ có kiểm tra dữ liệu (Validation) -->
         <div class="value-card">
           <span class="section-tag">BIỂU MẪU MÔ PHỎNG</span>
           <h2 style="font-size:1.4rem; margin-bottom:10px;">Gửi lời nhắn cho Gay Tech Store</h2>
@@ -127,101 +132,68 @@
     </section>
   </main>
 
+  <!-- 5. CHÂN TRANG (Footer) -->
   <footer class="site-footer">
     <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="brand-logo" style="margin-bottom:14px;">
+            <img src="img/logo.jpg" alt="Logo Gay Tech Store">
+            <div class="brand-text-wrap">
+              <span class="brand-name">GAY <span>TECH</span> STORE</span>
+              <span class="brand-sub">Gaming gear khó, có Gay Tech lo!</span>
+            </div>
+          </a>
+          <p style="color:var(--text-secondary); font-size:0.9rem;">
+            Dự án startup thương mại điện tử cung cấp thiết bị gaming và phụ kiện máy tính dành cho sinh viên.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Điều hướng</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Trang chủ</a></li>
+            <li><a href="index.html#catalog">Sản phẩm</a></li>
+            <li><a href="about.html">Giới thiệu</a></li>
+            <li><a href="contact.html">Liên hệ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Danh mục sản phẩm</h4>
+          <ul class="footer-links">
+            <li><a href="index.html?category=Gaming%20Mouse#catalog">Gaming Mouse</a></li>
+            <li><a href="index.html?category=Mechanical%20Keyboard#catalog">Mechanical Keyboard</a></li>
+            <li><a href="index.html?category=Monitor#catalog">Monitor 146Hz</a></li>
+            <li><a href="index.html?category=Gaming%20Headset#catalog">Gaming Headset</a></li>
+            <li><a href="index.html?category=Mousepad#catalog">Mousepad</a></li>
+            <li><a href="index.html?category=Game%20Controller#catalog">Game Controller</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Thông tin đồ án</h4>
+          <p style="color:var(--text-secondary); font-size:0.88rem; margin-bottom:8px;">
+            Học phần: <strong>CSC00004 – Nhập môn Công nghệ Thông tin</strong> (Đồ án 1).
+          </p>
+          <p style="color:var(--text-secondary); font-size:0.88rem;">
+            Khoa Công nghệ Thông tin, Trường ĐH Khoa học Tự nhiên, ĐHQG-HCM.
+          </p>
+        </div>
+      </div>
+
       <div class="footer-bottom">
         © 2026 Gay Tech Store — "Gaming gear khó, có Gay Tech lo!". Đồ án 1 môn CSC00004 Nhập môn CNTT.
       </div>
     </div>
   </footer>
 
-  <!-- Giỏ hàng dùng chung -->
-  <div class="overlay-backdrop" id="globalBackdrop"></div>
-  <aside class="cart-drawer" id="cartDrawer" aria-label="Giỏ hàng">
-    <div class="cart-drawer-header">
-      <h3>🛒 Giỏ hàng (<span id="cartTotalItemsText">0 sản phẩm</span>)</h3>
-      <button type="button" class="modal-close-btn" id="closeCartDrawerBtn" style="position:static;">✕</button>
-    </div>
-    <div class="cart-drawer-body" id="cartDrawerBody"></div>
-    <div class="cart-drawer-footer" id="cartDrawerFooter">
-      <div class="cart-summary-row"><span>Tạm tính:</span><strong id="cartSubtotalValue">0đ</strong></div>
-      <div class="cart-summary-row cart-summary-total"><span>Tổng cộng:</span><span id="cartTotalValue">0đ</span></div>
-      <div style="display:grid; gap:10px;">
-        <button type="button" class="btn btn-primary" id="proceedToCheckoutBtn">TIẾN HÀNH ĐẶT HÀNG</button>
-        <button type="button" class="btn btn-secondary btn-sm" id="continueShoppingBtn">Tiếp tục mua sắm</button>
-      </div>
-    </div>
-  </aside>
-
-  <div class="modal-container" id="checkoutModal" role="dialog" aria-modal="true">
-    <div class="modal-box checkout-modal-box">
-      <button type="button" class="modal-close-btn" id="closeCheckoutModalBtn">✕</button>
-      <div id="checkoutFormView">
-        <h2>Thanh toán đơn hàng (Chế độ mô phỏng)</h2>
-        <div class="demo-alert">
-          ⚠️ Vui lòng chỉ sử dụng thông tin giả, không nhập thông tin cá nhân thật.
-          <div style="margin-top:8px;">
-            <button type="button" class="btn btn-secondary btn-sm" id="fillDemoDataBtn">⚡ Điền nhanh thông tin mẫu (Demo)</button>
-          </div>
-        </div>
-        <form id="checkoutForm" novalidate>
-          <div class="checkout-grid">
-            <div>
-              <div class="form-group">
-                <label for="custName">Tên người nhận (tên giả) *</label>
-                <input type="text" id="custName" class="form-control">
-                <div class="form-error">Vui lòng nhập tên giả lập.</div>
-              </div>
-              <div class="form-group">
-                <label for="custPhone">Số điện thoại (số giả) *</label>
-                <input type="tel" id="custPhone" class="form-control">
-                <div class="form-error">Vui lòng nhập số điện thoại giả (9–11 số).</div>
-              </div>
-              <div class="form-group">
-                <label for="custAddress">Địa chỉ giao hàng mẫu *</label>
-                <input type="text" id="custAddress" class="form-control">
-                <div class="form-error">Vui lòng nhập địa chỉ mẫu.</div>
-              </div>
-              <div class="form-group">
-                <label for="custNote">Ghi chú</label>
-                <textarea id="custNote" class="form-control" rows="2"></textarea>
-              </div>
-            </div>
-            <div>
-              <label class="payment-option selected">
-                <input type="radio" name="paymentMethod" value="Thanh toán khi nhận hàng (Demo)" checked>
-                <div><strong>Thanh toán khi nhận hàng (Demo)</strong></div>
-              </label>
-              <label class="payment-option">
-                <input type="radio" name="paymentMethod" value="Chuyển khoản ngân hàng (Mô phỏng)">
-                <div><strong>Chuyển khoản ngân hàng (Mô phỏng)</strong></div>
-              </label>
-              <label class="payment-option">
-                <input type="radio" name="paymentMethod" value="Ví điện tử (Demo)">
-                <div><strong>Ví điện tử (Demo)</strong></div>
-              </label>
-              <div id="paymentMethodDesc" style="font-size:0.82rem; color:var(--yellow-primary); margin:10px 0;"></div>
-              <div style="background:var(--bg-primary); border:1px solid var(--border-color); padding:14px; border-radius:var(--radius-sm); margin-bottom:14px;">
-                <div id="checkoutOrderItems"></div>
-                <div style="display:flex; justify-content:space-between; font-weight:800; color:var(--yellow-primary); margin-top:10px;">
-                  <span>Tổng cộng:</span><span id="checkoutFinalTotal">0đ</span>
-                </div>
-              </div>
-              <button type="submit" class="btn btn-primary" style="width:100%;">XÁC NHẬN ĐẶT HÀNG</button>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div id="checkoutSuccessView" style="display:none; text-align:center;">
-        <h2 style="color:var(--success);">ĐẶT HÀNG THÀNH CÔNG!</h2>
-        <div id="orderConfirmationDetails"></div>
-        <a href="index.html" class="btn btn-primary" style="margin-top:14px;">Quay về trang chủ</a>
-      </div>
-    </div>
-  </div>
-
   <button type="button" class="back-to-top" id="backToTopBtn" aria-label="Lên đầu trang">↑</button>
+
+  <!-- Nạp 4 module JS -->
   <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/checkout.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

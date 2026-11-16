@@ -1,3 +1,52 @@
+/**
+ * =========================================================
+ * TRUNG TÂM DỮ LIỆU GAY TECH STORE (js/products.js)
+ * =========================================================
+ * Bạn chỉ cần sửa file này khi muốn:
+ * 1. Thêm / sửa danh mục ở mảng CATEGORIES_DATA
+ * 2. Thêm / sửa sản phẩm, giá tiền, ảnh ở mảng PRODUCTS_DATA
+ * 3. Cập nhật Tên, MSSV, Vai trò của 5 thành viên ở mảng TEAM_MEMBERS_DATA
+ */
+
+const CATEGORIES_DATA = [
+  {
+    id: "Gaming Mouse",
+    title: "Gaming Mouse",
+    subtitle: "Chuột không dây",
+    image: "img/chuot.jpg"
+  },
+  {
+    id: "Mechanical Keyboard",
+    title: "Mechanical Keyboard",
+    subtitle: "Bàn phím cơ 75%",
+    image: "img/phim.jpg"
+  },
+  {
+    id: "Gaming Headset",
+    title: "Gaming Headset",
+    subtitle: "Tai nghe chụp tai",
+    image: "img/taiNghe.png"
+  },
+  {
+    id: "Monitor",
+    title: "Monitor",
+    subtitle: "Màn hình 146Hz",
+    image: "img/manHinh.jpg"
+  },
+  {
+    id: "Mousepad",
+    title: "Mousepad",
+    subtitle: "Bàn di chuột",
+    image: "img/lotChuot.jpg"
+  },
+  {
+    id: "Game Controller",
+    title: "Game Controller",
+    subtitle: "Tay cầm DualSense",
+    image: "img/tayCam.png"
+  }
+];
+
 const PRODUCTS_DATA = [
   {
     id: "gts-mouse-g305",
@@ -94,5 +143,38 @@ const PRODUCTS_DATA = [
       "Bố cục nút bấm trực quan, phản hồi nhạy bén",
       "Phụ kiện lý tưởng cho nhu cầu giải trí sau giờ học"
     ]
+  }
+];
+
+const TEAM_MEMBERS_DATA = [
+  {
+    avatarText: "TV1",
+    name: "Hoàng Mạnh Hùng",
+    mssv: "26127142",
+    role: "Kiến trúc mã nguồn, Lập trình tính năng & Kiểm thử hệ thống"
+  },
+  {
+    avatarText: "TV2",
+    name: "Thành viên 2",
+    mssv: "[Cập nhật MSSV]",
+    role: "Xây dựng dữ liệu sản phẩm & Nội dung thương hiệu"
+  },
+  {
+    avatarText: "TV3",
+    name: "Thành viên 3",
+    mssv: "[Cập nhật MSSV]",
+    role: "Thiết kế giao diện UI/UX & Tối ưu hiển thị di động"
+  },
+  {
+    avatarText: "TV4",
+    name: "Thành viên 4",
+    mssv: "[Cập nhật MSSV]",
+    role: "Thiết kế Poster khổ A1, mã QR & Kịch bản thuyết trình"
+  },
+  {
+    avatarText: "TV5",
+    name: "Thành viên 5",
+    mssv: "[Cập nhật MSSV]",
+    role: "Phụ trách luồng Giỏ hàng, Thanh toán & Điều phối nhóm"
   }
 ];

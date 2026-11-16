@@ -1,3 +1,8 @@
+/* =========================================================
+   MAIN STYLESHEET (css/style.css)
+   Hệ thống màu sắc Dark Gaming UI & Giao diện thành phần
+   ========================================================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap');
 
 :root {
@@ -85,7 +90,7 @@ button {
   padding: 0 20px;
 }
 
-/* Announcement Bar */
+/* 1. Thanh thông báo (Announcement Bar) */
 .announcement-bar {
   background: linear-gradient(90deg, #191D25 0%, #232834 50%, #191D25 100%);
   border-bottom: 1px solid var(--border-color);
@@ -101,7 +106,7 @@ button {
   font-weight: 700;
 }
 
-/* Header & Navigation */
+/* 2. Header & Thanh điều hướng */
 .site-header {
   position: sticky;
   top: 0;
@@ -156,7 +161,7 @@ button {
   color: var(--text-secondary);
 }
 
-/* Header Search */
+/* Tìm kiếm trên Header */
 .header-search {
   flex: 1;
   max-width: 360px;
@@ -205,7 +210,7 @@ button {
   display: block;
 }
 
-/* Nav Links */
+/* Liên kết Menu */
 .main-nav {
   display: flex;
   align-items: center;
@@ -227,7 +232,7 @@ button {
   background: rgba(255, 210, 31, 0.08);
 }
 
-/* Header Actions */
+/* Cụm nút Giỏ hàng & Mobile Menu */
 .header-actions {
   display: flex;
   align-items: center;
@@ -278,7 +283,7 @@ button {
   font-size: 1.25rem;
 }
 
-/* Buttons */
+/* 3. Hệ thống Nút bấm (Buttons) */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -320,7 +325,7 @@ button {
   font-size: 0.85rem;
 }
 
-/* Hero Section */
+/* 4. Khu vực Hero Trang chủ */
 .hero-section {
   position: relative;
   padding: 72px 0 80px;
@@ -400,7 +405,6 @@ button {
   color: var(--text-secondary);
 }
 
-/* Hero Visual Showcase */
 .hero-visual {
   position: relative;
 }
@@ -423,12 +427,18 @@ button {
   align-items: center;
   justify-content: center;
   margin-bottom: 18px;
+  cursor: pointer;
 }
 
 .hero-main-img-wrap img {
   max-height: 100%;
   max-width: 100%;
   object-fit: contain;
+  transition: transform var(--transition);
+}
+
+.hero-main-img-wrap:hover img {
+  transform: scale(1.04);
 }
 
 .hero-mini-grid {
@@ -469,7 +479,7 @@ button {
   display: block;
 }
 
-/* Section Common */
+/* 5. Bố cục Section dùng chung */
 .section {
   padding: 72px 0;
 }
@@ -506,7 +516,7 @@ button {
   font-size: 1rem;
 }
 
-/* Brand Values Grid */
+/* 6. Lưới Giá trị thương hiệu & Danh mục */
 .values-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -549,7 +559,6 @@ button {
   color: var(--text-secondary);
 }
 
-/* Category Showcase */
 .category-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -604,7 +613,7 @@ button {
   color: var(--text-secondary);
 }
 
-/* Catalog Controls (Search, Filter, Sort) */
+/* 7. Thanh công cụ Tìm kiếm, Lọc & Sắp xếp sản phẩm */
 .catalog-toolbar {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -715,7 +724,7 @@ button {
   color: #111318;
 }
 
-/* Product Grid & Cards */
+/* 8. Lưới Sản phẩm & Thẻ sản phẩm */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -832,7 +841,6 @@ button {
   gap: 10px;
 }
 
-/* Empty State */
 .empty-catalog-state {
   background: var(--bg-card);
   border: 1px dashed var(--border-color);
@@ -852,7 +860,7 @@ button {
   margin-bottom: 20px;
 }
 
-/* Promo Banner */
+/* 9. Banner Quảng bá */
 .promo-banner {
   background: linear-gradient(135deg, #202530 0%, #151821 100%);
   border: 1px solid var(--yellow-primary);
@@ -875,7 +883,7 @@ button {
   font-size: 1.02rem;
 }
 
-/* Modals & Cart Drawer Overlays */
+/* 10. Cửa sổ Modal & Ngăn kéo Giỏ hàng (Cart Drawer) */
 .overlay-backdrop {
   position: fixed;
   inset: 0;
@@ -892,7 +900,6 @@ button {
   visibility: visible;
 }
 
-/* Product Detail Modal */
 .modal-container {
   position: fixed;
   inset: 0;
@@ -901,6 +908,8 @@ button {
   align-items: center;
   justify-content: center;
   padding: 20px;
+  background: rgba(9, 11, 15, 0.75);
+  backdrop-filter: blur(4px);
   opacity: 0;
   visibility: hidden;
   transition: all var(--transition);
@@ -1015,7 +1024,7 @@ button {
   font-weight: 700;
 }
 
-/* Slide-out Cart Drawer */
+/* Cart Drawer */
 .cart-drawer {
   position: fixed;
   top: 0;
@@ -1128,7 +1137,7 @@ button {
   margin-bottom: 16px;
 }
 
-/* Checkout Modal */
+/* 11. Giao diện Thanh toán (Checkout) & Biểu mẫu */
 .checkout-modal-box {
   max-width: 980px;
 }
@@ -1210,7 +1219,7 @@ button {
   background: rgba(255, 210, 31, 0.06);
 }
 
-/* About & Contact Pages */
+/* 12. Trang Giới thiệu & Liên hệ */
 .page-hero {
   padding: 60px 0;
   background: var(--bg-secondary);
@@ -1236,6 +1245,12 @@ button {
   border-radius: var(--radius-md);
   padding: 22px 16px;
   text-align: center;
+  transition: all var(--transition);
+}
+
+.team-card:hover {
+  border-color: var(--yellow-primary);
+  transform: translateY(-4px);
 }
 
 .team-avatar {
@@ -1253,7 +1268,7 @@ button {
   margin: 0 auto 14px;
 }
 
-/* Toast Notification */
+/* 13. Thông báo nổi (Toast) & Nút lên đầu trang */
 .toast-container {
   position: fixed;
   bottom: 24px;
@@ -1278,7 +1293,6 @@ button {
   font-weight: 600;
 }
 
-/* Back to Top */
 .back-to-top {
   position: fixed;
   bottom: 24px;
@@ -1304,7 +1318,7 @@ button {
   visibility: visible;
 }
 
-/* Footer */
+/* 14. Chân trang (Footer) */
 .site-footer {
   margin-top: auto;
   background: var(--bg-secondary);
@@ -1348,90 +1362,4 @@ button {
   text-align: center;
   color: var(--text-secondary);
   font-size: 0.84rem;
-}
-
-/* Responsive Breakpoints */
-@media (max-width: 1199px) {
-  .category-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .team-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 991px) {
-  .hero-grid,
-  .modal-detail-grid,
-  .checkout-grid,
-  .two-col-grid {
-    grid-template-columns: 1fr;
-  }
-  .values-grid,
-  .products-grid,
-  .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .header-search {
-    display: none;
-  }
-  .mobile-menu-btn {
-    display: inline-flex;
-  }
-  .main-nav {
-    position: fixed;
-    top: 76px;
-    left: 0;
-    right: 0;
-    background: var(--bg-secondary);
-    border-bottom: 1px solid var(--border-color);
-    flex-direction: column;
-    padding: 16px;
-    display: none;
-  }
-  .main-nav.open {
-    display: flex;
-  }
-  .nav-link {
-    width: 100%;
-    text-align: center;
-    padding: 12px;
-  }
-}
-
-@media (max-width: 767px) {
-  .values-grid,
-  .products-grid,
-  .footer-grid,
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
-  .category-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .promo-banner {
-    flex-direction: column;
-    text-align: center;
-    padding: 32px 20px;
-  }
-  .hero-highlights {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 479px) {
-  .product-actions {
-    grid-template-columns: 1fr;
-  }
-  .brand-sub {
-    display: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
 }
