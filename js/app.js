@@ -87,6 +87,7 @@
       (member) => `
       <div class="team-card">
         <div class="team-avatar"><i class="fa-solid fa-user-astronaut"></i></div>
+        <h4 style="margin-bottom: 4px; color: lightgray;">${member.avatarText}</h4>
         <h3>${member.name}</h3>
         <p style="color:var(--yellow-primary); font-size:0.82rem; font-weight:700; margin:4px 0;">
           <i class="fa-solid fa-id-card" style="margin-right:5px;"></i>MSSV: ${member.mssv}
