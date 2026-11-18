@@ -151,30 +151,30 @@ const TEAM_MEMBERS_DATA = [
     avatarText: "Trưởng Nhóm",
     name: "Kiều Gia Huy",
     mssv: "26127170",
-    role: "Kiến trúc mã nguồn, Lập trình tính năng & Kiểm thử hệ thống"
+    role: "Tìm kiếm sản phẩm & Kiểm thử hệ thống"
   },
   {
-    avatarText: "TV2",
+    avatarText: "Thành viên",
     name: "Lê Trần Tấn Lộc",
     mssv: "26127258",
-    role: "Thiết kế giao diện UI/UX & Tối ưu hiển thị di động"
+    role: "Viết web"
   },
   {
-    avatarText: "TV3",
-    name: "Thành viên 3",
-    mssv: "[Cập nhật MSSV]",
-    role: "Xây dựng dữ liệu sản phẩm & Nội dung thương hiệu"
+    avatarText: "Thành viên",
+    name: "Trần Quốc Tiến",
+    mssv: "26127456",
+    role: "Làm nội dung poster"
   },
   {
-    avatarText: "TV4",
-    name: "Thành viên 4",
-    mssv: "[Cập nhật MSSV]",
-    role: "Thiết kế Poster khổ A1, mã QR & Kịch bản thuyết trình"
+    avatarText: "Thành viên",
+    name: "Nguyễn Việt Dũng",
+    mssv: "26127095",
+    role: "Làm khung poster"
   },
   {
-    avatarText: "TV5",
-    name: "Thành viên 5",
-    mssv: "[Cập nhật MSSV]",
-    role: "Phụ trách luồng Giỏ hàng, Thanh toán & Điều phối nhóm"
+    avatarText: "Thành viên",
+    name: "Hà Hoàng Hiệp",
+    mssv: "26127119",
+    role: "Làm nội dung poster"
   }
 ];
