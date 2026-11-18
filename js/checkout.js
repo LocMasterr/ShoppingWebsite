@@ -1,5 +1,5 @@
 /**
- * MODULE THANH TOÁN ĐÃ KHẮC PHỤC LỖI NHÂN ĐÔI (js/checkout.js)
+ * MODULE THANH TOÁN (js/checkout.js)
  */
 const CheckoutModule = (function () {
   const paymentDescriptions = {
